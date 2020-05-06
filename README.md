@@ -38,6 +38,8 @@ Deberá solicitar un nombre de jugador a través de una pequeña ventana o cambi
 
 **Puntajes**<br>
 Se mostrará una ventana externa conteniendo un **Top 10** mejores puntajes, mostrando el nombre del jugador/usuario y el puntaje obtenido.
+
+
 ![Top](./Res/Top.png)
 
 
@@ -48,7 +50,7 @@ a utilizar, la disposición de los cuadros en pantalla, la movilidad si será co
 
 Los aspectos que son **obligatorios** en la jugabilidad serán:
 
-![Top](./Res/game.png)
+![Top](./Res/Game.png)
 
 * Un sistema de vidas<br>
 Que el jugador inicie con una cantidad **n** y  a medida falle disminuyan hasta perder el juego.
