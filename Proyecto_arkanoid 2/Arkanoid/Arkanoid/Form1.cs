@@ -52,9 +52,16 @@ namespace Arkanoid
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            GameMenu menu = new GameMenu();
+            GameMenu menu = new GameMenu(1);
             Hide();
             menu.Show();        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GameMenu menu = new GameMenu(2);
+            Hide();
+            menu.Show();
         }
     }
 }

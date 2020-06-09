@@ -6,10 +6,10 @@ namespace Arkanoid
 {
     public partial class GameMenu : Form
     {
-        public GameMenu()
-        {
+        public GameMenu(int choice)
+        { 
             InitializeComponent();
-            cargarPuntajes();
+           loadControls(choice);
 
         }
 
@@ -44,6 +44,34 @@ namespace Arkanoid
         {
             var sql = "Select * from score";
             dataGridView1.DataSource = ConnectionBD.ExecuteQuery(sql);
+        }
+
+        public void loadControls(int num)
+        {
+            if (num == 2)
+                tabControl1.TabPages.Remove(tabPage1);
+            else
+            {
+                tabControl1.TabPages.Remove(tabPage2);
+                cargarPuntajes();
+            }
+            
+                
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 ventana = new Form1();
+            Hide();
+            ventana.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form1 ventana = new Form1();
+            Hide();
+            ventana.Show();
+            
         }
     }
 }
