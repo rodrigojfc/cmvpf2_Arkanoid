@@ -15,9 +15,8 @@ namespace Arkanoid
         public Form1()
         {
             InitializeComponent();
-            Height = ClientSize.Height;
-            Width = ClientSize.Width;
-            WindowState = FormWindowState.Maximized;
+            cargarCombo();
+            
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -26,6 +25,36 @@ namespace Arkanoid
             // Esconder Form1 y mostrar Game
             Hide();
             Game.Show();
+            
+        }
+
+
+        public void cargarCombo()
+        {
+            var sql = "Select * from player";
+            try
+            {
+                var dt = ConnectionBD.ExecuteQuery(sql);
+                comboBox1.DataSource = dt;
+                comboBox1.ValueMember = "playerid";
+                comboBox1.DisplayMember = "username";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error", "Arkanoid", MessageBoxButtons.OK);
+            }
+
+            
+        }
+
+
+       
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            GameMenu menu = new GameMenu();
+            Hide();
+            menu.Show();        
         }
     }
 }

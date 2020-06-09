@@ -1,0 +1,28 @@
+-- Database: Arkanoid
+
+-- DROP DATABASE "Arkanoid";
+
+CREATE DATABASE "Arkanoid"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+CREATE TABLE public.player
+(
+    playerid serial NOT NULL,
+    username character varying(20) NOT NULL,
+    CONSTRAINT player_pkey PRIMARY KEY (playerid)
+);
+
+CREATE TABLE public.score
+(
+    scoreid serial NOT NULL,
+    score integer NOT NULL,
+    playerid integer NOT NULL,
+    CONSTRAINT score_pkey PRIMARY KEY (scoreid),
+    CONSTRAINT fk_playerid FOREIGN KEY (playerid)
+        REFERENCES public.player (playerid) MATCH SIMPLE
+       
+);

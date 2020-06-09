@@ -134,6 +134,7 @@ namespace Arkanoid
                 GameData.dirY = -GameData.dirY;
             }
             
+            
             for (int i = 4; i >= 0; i--)
             {
                 for(int j = 0; j < 10; j++)
@@ -143,7 +144,10 @@ namespace Arkanoid
                         cpb[i, j].Golpes--;
 
                         if (cpb[i, j].Golpes == 0)
-                            Controls.Remove(cpb[i, j]);
+                        {
+                            cpb[i, j].Hide();
+                            
+                        }
 
                         GameData.dirY = -GameData.dirY;
 
