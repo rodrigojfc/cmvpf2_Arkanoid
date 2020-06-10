@@ -15,7 +15,6 @@ namespace Arkanoid
         public Form1()
         {
             InitializeComponent();
-            cargarCombo();
             
         }
 
@@ -62,6 +61,11 @@ namespace Arkanoid
             GameMenu menu = new GameMenu(2);
             Hide();
             menu.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cargarCombo();
         }
     }
 }
