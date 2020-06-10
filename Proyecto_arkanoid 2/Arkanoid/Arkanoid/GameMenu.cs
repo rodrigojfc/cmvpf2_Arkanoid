@@ -8,8 +8,9 @@ namespace Arkanoid
     {
         public GameMenu(int choice)
         { 
-            InitializeComponent();
+           InitializeComponent();
            loadControls(choice);
+           
 
         }
 
