@@ -107,8 +107,60 @@ namespace Arkanoid
 
             ball.Left += GameData.dirX;
             ball.Top += GameData.dirY;
+            
+            
 
             rebotarPelota();
+
+            foreach (CustomPictureBox x in cpb)
+            {
+                if (x is Control && x.Tag == "tileTag")
+                {
+                    if (ball.Bounds.IntersectsWith(x.Bounds))
+                    {
+
+                        x.Golpes--;
+                        if (x.Golpes == 0)
+                        {
+                            Controls.Remove(x);
+
+                            GameData.dirY = -GameData.dirY;
+
+                            return;
+                            
+                        }
+
+                    
+
+                        
+                    }
+
+                }
+            }
+            /*
+            if (ball.Bounds.IntersectsWith(x.Bounds))
+            {
+                x.Golpes--;
+
+                if (cpb[i, j].Golpes == 0)
+                {
+                    Controls.Remove(cpb[i,j]);
+                        
+                }
+
+                GameData.dirY = -GameData.dirY;
+
+                return;
+            } */
+                 
+            for (int i = 4; i >= 0; i--)
+            {
+                for(int j = 0; j < 10; j++)
+                {
+                    
+                }
+            }
+                
         }
 
 
@@ -135,26 +187,7 @@ namespace Arkanoid
             }
             
             
-            for (int i = 4; i >= 0; i--)
-            {
-                for(int j = 0; j < 10; j++)
-                {
-                    if (ball.Bounds.IntersectsWith(cpb[i, j].Bounds))
-                    {
-                        cpb[i, j].Golpes--;
-
-                        if (cpb[i, j].Golpes == 0)
-                        {
-                            cpb[i, j].Hide();
-                            
-                        }
-
-                        GameData.dirY = -GameData.dirY;
-
-                        return;
-                    }
-                }
-            }
+            
         }
     }
 }
