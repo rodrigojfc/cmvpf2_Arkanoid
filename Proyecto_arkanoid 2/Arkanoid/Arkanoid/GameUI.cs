@@ -11,6 +11,7 @@ namespace Arkanoid
         public GameUI()
         {
             InitializeComponent();
+            // Expandir la ventana a toda la pantalla
             Height = ClientSize.Height;
             Width = ClientSize.Width;
             WindowState = FormWindowState.Maximized;
@@ -18,6 +19,7 @@ namespace Arkanoid
 
         private void GameUI_Load(object sender, EventArgs e)
         {
+            // Obtener y mostrar la barra de jugador y la boda
             pictureBox1.BackgroundImage = Image.FromFile("../../Img/Player.png");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -40,6 +42,7 @@ namespace Arkanoid
 
         private void LoadTiles()
         {
+            // Metodo para cargar los bloques
             int xAxis = 10;
             int yAxis = 5;
 
@@ -85,6 +88,7 @@ namespace Arkanoid
 
         private void GameUI_MouseMove(object sender, MouseEventArgs e)
         {
+            // If para ver como sera el movimiento de la bola y la barra dependiendo si el juego ha empezado o no
             if (!GameData.juegoIniciado)
             {
                 if (e.X < (Width - pictureBox1.Width))
@@ -139,6 +143,7 @@ namespace Arkanoid
 
         private void rebotarPelota()
         {
+            // Metodo para rebotar la pelota
             if (ball.Bottom > Height)
                 Application.Exit();
 

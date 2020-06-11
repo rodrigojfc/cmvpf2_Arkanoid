@@ -15,7 +15,10 @@ namespace Arkanoid
         public Form1()
         {
             InitializeComponent();
-            
+            // Extender la ventana en toda la pantalla
+            Height = ClientSize.Height;
+            Width = ClientSize.Width;
+            WindowState = FormWindowState.Maximized;
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -30,6 +33,7 @@ namespace Arkanoid
 
         public void cargarCombo()
         {
+            // Mostrar los nombres de los jugadores registrados en el combobox
             var sql = "Select * from player";
             try
             {
@@ -47,10 +51,9 @@ namespace Arkanoid
         }
 
 
-       
-
         private void button2_Click_1(object sender, EventArgs e)
         {
+            // Esconder form1 y mostrar crear jugador
             GameMenu menu = new GameMenu(1);
             Hide();
             menu.Show();        
@@ -58,6 +61,7 @@ namespace Arkanoid
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Esconder form1 y mostrar puntajes
             GameMenu menu = new GameMenu(2);
             Hide();
             menu.Show();

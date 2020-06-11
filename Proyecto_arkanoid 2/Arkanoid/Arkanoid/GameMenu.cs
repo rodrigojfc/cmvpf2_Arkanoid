@@ -10,12 +10,16 @@ namespace Arkanoid
         { 
            InitializeComponent();
            loadControls(choice);
-           
+           // Expandir ventana a toda la pantalla
+           Height = ClientSize.Height;
+           Width = ClientSize.Width;
+           WindowState = FormWindowState.Maximized;
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Agregar un nuevo jugador a la base de datos
             if (textBox1.Text.Equals(""))
                 MessageBox.Show("No se permiten campos vacios", "Arkanoid", MessageBoxButtons.OK);
             else if(textBox1.Text.Length < 5)
@@ -43,12 +47,14 @@ namespace Arkanoid
         
         public void cargarPuntajes()
         {
+            // Mostrar los puntaes en el dataGrid
             var sql = "Select * from score";
             dataGridView1.DataSource = ConnectionBD.ExecuteQuery(sql);
         }
 
         public void loadControls(int num)
         {
+            // Mostrar la tab dependiendo de la decision en form1
             if (num == 2)
                 tabControl1.TabPages.Remove(tabPage1);
             else
@@ -62,6 +68,7 @@ namespace Arkanoid
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Esconder GameMenu y mostrar form1
             Form1 ventana = new Form1();
             Hide();
             ventana.Show();
@@ -69,6 +76,7 @@ namespace Arkanoid
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Esconder GameMenu y mostrar form1
             Form1 ventana = new Form1();
             Hide();
             ventana.Show();
