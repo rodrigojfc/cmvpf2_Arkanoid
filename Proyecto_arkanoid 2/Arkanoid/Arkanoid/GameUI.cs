@@ -111,32 +111,7 @@ namespace Arkanoid
             
 
             rebotarPelota();
-
-            foreach (CustomPictureBox x in cpb)
-            {
-                if (x is Control && x.Tag == "tileTag")
-                {
-                    if (ball.Bounds.IntersectsWith(x.Bounds))
-                    {
-
-                        x.Golpes--;
-                        if (x.Golpes == 0)
-                        {
-                            Controls.Remove(x);
-
-                            GameData.dirY = -GameData.dirY;
-
-                            return;
-                            
-                        }
-
-                    
-
-                        
-                    }
-
-                }
-            }
+            
             /*
             if (ball.Bounds.IntersectsWith(x.Bounds))
             {
@@ -152,15 +127,7 @@ namespace Arkanoid
 
                 return;
             } */
-                 
-            for (int i = 4; i >= 0; i--)
-            {
-                for(int j = 0; j < 10; j++)
-                {
-                    
-                }
-            }
-                
+            
         }
 
 
@@ -186,6 +153,26 @@ namespace Arkanoid
                 GameData.dirY = -GameData.dirY;
             }
             
+            foreach (CustomPictureBox x in cpb)
+            {
+                if (x is Control && x.Tag == "tileTag")
+                {
+                    if (ball.Bounds.IntersectsWith(x.Bounds))
+                    {
+
+                        x.Golpes--;
+                        if (x.Golpes == 0)
+                        {
+                            Controls.Remove(x);
+
+                            GameData.dirY = -GameData.dirY;
+
+                            return;
+                            
+                        }
+                    }
+                }
+            }
             
             
         }
