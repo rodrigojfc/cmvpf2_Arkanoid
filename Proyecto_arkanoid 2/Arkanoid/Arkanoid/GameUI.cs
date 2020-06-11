@@ -35,7 +35,7 @@ namespace Arkanoid
             ball.Left = pictureBox1.Left + (pictureBox1.Width / 2) - (ball.Width / 2);
 
             Controls.Add(ball);
-
+            
             LoadTiles();
             timer1.Start();
         }
@@ -43,11 +43,11 @@ namespace Arkanoid
         private void LoadTiles()
         {
             // Metodo para cargar los bloques
-            int xAxis = 10;
+            int xAxis = 20;
             int yAxis = 5;
 
             int pbHeight = (int)(Height * 0.3) / yAxis;
-            int pbWidth = (Width - (xAxis - 5)) / xAxis;
+            int pbWidth = (Width - (xAxis - 20)) / xAxis;
 
             cpb = new CustomPictureBox[yAxis, xAxis];
 
@@ -69,10 +69,20 @@ namespace Arkanoid
                     cpb[i, j].Left = j * pbWidth;
                     cpb[i, j].Top = i * pbHeight;
 
-                    // Si el valor de i = 0, entonces colocar ruta de imagen de bloque blindado
-                    cpb[i, j].BackgroundImage = Image.FromFile("../../Img/" + GRN() + ".png");
-                    cpb[i, j].BackgroundImageLayout = ImageLayout.Stretch;
+                    // Si el valor de i = 0, entonces colocar ruta de imagen de bloque blindada
 
+                    if (i == 0)
+                    {
+                        cpb[i, j].BackgroundImage = Image.FromFile("../../Img/armored.png");
+                        cpb[i, j].BackgroundImageLayout = ImageLayout.Stretch;
+                        cpb[i, j].Golpes = 2;
+                    }
+                    else
+                    {
+                        cpb[i, j].BackgroundImage = Image.FromFile("../../Img/" + GRN() + ".png");
+                        cpb[i, j].BackgroundImageLayout = ImageLayout.Stretch;
+                        
+                    }
                     cpb[i, j].Tag = "tileTag";
 
                     Controls.Add(cpb[i,j]);
@@ -82,9 +92,9 @@ namespace Arkanoid
 
         private int GRN()
         {
-            return new Random().Next(1,8);
+            return new Random().Next(1,9);
         }
-
+        
 
         private void GameUI_MouseMove(object sender, MouseEventArgs e)
         {
@@ -103,6 +113,8 @@ namespace Arkanoid
                     pictureBox1.Left = e.X;
             }
         }
+        
+        
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -153,7 +165,7 @@ namespace Arkanoid
                 return;
             }
 
-            if (ball.Bounds.IntersectsWith(pictureBox1.Bounds))
+            if (ball.Bounds.IntersectsWith(pictureBox1.Bounds) ||  ball.Top < 0)
             {
                 GameData.dirY = -GameData.dirY;
             }
@@ -180,6 +192,10 @@ namespace Arkanoid
             }
             
             
+            
         }
+
+
+        
     }
 }
