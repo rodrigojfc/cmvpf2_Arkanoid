@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Media;
 
 namespace Arkanoid
 {
@@ -8,13 +10,16 @@ namespace Arkanoid
     {
         private CustomPictureBox [,] cpb;
         private PictureBox ball;
-        public GameUI()
+        private int score = 0;
+        private DataRow dt;
+        public GameUI(DataRow playerData)
         {
             InitializeComponent();
             // Expandir la ventana a toda la pantalla
             Height = ClientSize.Height;
             Width = ClientSize.Width;
             WindowState = FormWindowState.Maximized;
+            dt = playerData;
         }
 
         private void GameUI_Load(object sender, EventArgs e)
@@ -42,6 +47,7 @@ namespace Arkanoid
 
         private void LoadTiles()
         {
+            
             // Metodo para cargar los bloques
             int xAxis = 20;
             int yAxis = 5;
@@ -152,12 +158,17 @@ namespace Arkanoid
             if (e.KeyCode == Keys.Space)
                 GameData.juegoIniciado = true;
         }
-
+        
+        
         private void rebotarPelota()
         {
+            
             // Metodo para rebotar la pelota
             if (ball.Bottom > Height)
+            {
+                addScores(dt);
                 Application.Exit();
+            }
 
             if (ball.Left < 0 || ball.Right > Width)
             {
@@ -180,6 +191,7 @@ namespace Arkanoid
                         x.Golpes--;
                         if (x.Golpes == 0)
                         {
+                            score += 5;
                             Controls.Remove(x);
 
                             GameData.dirY = -GameData.dirY;
@@ -195,7 +207,22 @@ namespace Arkanoid
             
         }
 
+        private void addScores(DataRow playerData)
+        {
+            
 
+            int playerID = Convert.ToInt32(playerData[0].ToString());
+
+            var sql = string.Format("insert into score(score, playerid) values({0}, {1})", score, playerID);
+            try
+            {
+                ConnectionBD.ExecuteNonQuery(sql);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo agregar el puntaje", "Arkanoid", MessageBoxButtons.OK);
+            }
+        }
         
     }
 }

@@ -48,8 +48,12 @@ namespace Arkanoid
         public void cargarPuntajes()
         {
             // Mostrar los puntaes en el dataGrid
-            var sql = "Select * from score";
-            dataGridView1.DataSource = ConnectionBD.ExecuteQuery(sql);
+            var sql = "select * from score ";
+            
+            var dt = ConnectionBD.ExecuteQuery(sql);
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = dt;
         }
 
         public void loadControls(int num)
@@ -59,8 +63,9 @@ namespace Arkanoid
                 tabControl1.TabPages.Remove(tabPage1);
             else
             {
-                tabControl1.TabPages.Remove(tabPage2);
                 cargarPuntajes();
+
+                tabControl1.TabPages.Remove(tabPage2);
             }
             
                 

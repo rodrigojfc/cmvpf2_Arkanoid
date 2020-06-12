@@ -23,7 +23,9 @@ namespace Arkanoid
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            GameUI Game = new GameUI();
+            DataRowView player1 = (DataRowView) comboBox1.SelectedItem;
+            DataRow player = (DataRow) player1.Row;
+            GameUI Game = new GameUI(player);
             // Esconder Form1 y mostrar Game
             Hide();
             Game.Show();
