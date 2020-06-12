@@ -29,23 +29,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnPlay = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tloMain = new System.Windows.Forms.TableLayoutPanel();
+            this.tloMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPlay
             // 
-            this.btnPlay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPlay.AutoSize = true;
             this.btnPlay.BackColor = System.Drawing.Color.LightGray;
-            this.btnPlay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnPlay.Location = new System.Drawing.Point(227, 235);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnPlay.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPlay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnPlay.Location = new System.Drawing.Point(343, 225);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(155, 39);
+            this.btnPlay.Size = new System.Drawing.Size(114, 54);
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "Jugar";
             this.btnPlay.UseVisualStyleBackColor = false;
@@ -53,13 +57,13 @@
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.AutoSize = true;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(227, 278);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.button1.Location = new System.Drawing.Point(343, 281);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 39);
+            this.button1.Size = new System.Drawing.Size(114, 54);
             this.button1.TabIndex = 1;
             this.button1.Text = "Ver puntajes";
             this.button1.UseVisualStyleBackColor = true;
@@ -67,13 +71,13 @@
             // 
             // button2
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.AutoSize = true;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(227, 321);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.button2.Location = new System.Drawing.Point(343, 337);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 39);
+            this.button2.Size = new System.Drawing.Size(114, 54);
             this.button2.TabIndex = 2;
             this.button2.Text = "Crear jugador";
             this.button2.UseVisualStyleBackColor = true;
@@ -81,31 +85,58 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point((ClientSize.Width * 2) + 40, (ClientSize.Height + 100));
+            this.comboBox1.Location = new System.Drawing.Point(344, 173);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 21);
+            this.comboBox1.Size = new System.Drawing.Size(112, 28);
             this.comboBox1.TabIndex = 3;
+            // 
+            // tloMain
+            // 
+            this.tloMain.BackColor = System.Drawing.Color.Transparent;
+            this.tloMain.ColumnCount = 3;
+            this.tloMain.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.5F));
+            this.tloMain.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tloMain.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.5F));
+            this.tloMain.Controls.Add(this.comboBox1, 1, 1);
+            this.tloMain.Controls.Add(this.button2, 1, 4);
+            this.tloMain.Controls.Add(this.btnPlay, 1, 2);
+            this.tloMain.Controls.Add(this.button1, 1, 3);
+            this.tloMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tloMain.Location = new System.Drawing.Point(0, 0);
+            this.tloMain.Name = "tloMain";
+            this.tloMain.RowCount = 6;
+            this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tloMain.Size = new System.Drawing.Size(800, 561);
+            this.tloMain.TabIndex = 4;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(600, 365);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnPlay);
+            this.ClientSize = new System.Drawing.Size(800, 561);
+            this.Controls.Add(this.tloMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.tloMain.ResumeLayout(false);
+            this.tloMain.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
 
         private System.Windows.Forms.Button btnPlay;
@@ -114,5 +145,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
 
         #endregion
+
+        private System.Windows.Forms.TableLayoutPanel tloMain;
     }
 }

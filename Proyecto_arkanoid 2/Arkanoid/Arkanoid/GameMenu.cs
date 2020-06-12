@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Security.AccessControl;
 using System.Windows.Forms;
 
@@ -47,24 +49,50 @@ namespace Arkanoid
         
         public void cargarPuntajes()
         {
-            // Mostrar los puntaes en el dataGrid
-            var sql = "select * from score ";
-            
-            var dt = ConnectionBD.ExecuteQuery(sql);
+            //opcion 1
+            //Mostrar los puntajes en el dataGrid
+            DataTable sql = null;
 
+            try
+            {
+                sql = ConnectionBD.ExecuteQuery("select pl.username, sc.score " +
+                                                "from player pl, score sc " +
+                                                "where sc.playerid = pl.playerid");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error");
+            }
+
+            // opcion 2 con lista 
+            /*string sql = "select * from score";
+           
+            DataTable dt = ConnectionBD.ExecuteQuery(sql);
+
+            List<Score> lista = new List<Score>();
+            foreach (DataRow fila in dt.Rows)
+            {
+                Score sco = new Score();
+                sco.scoreid = Convert.ToInt32(fila[0].ToString());
+                sco.score = Convert.ToInt32(fila[1].ToString());
+                sco.playerid = Convert.ToInt32(fila[2].ToString());
+                
+                lista.Add(sco);
+            }*/
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = sql;
         }
 
         public void loadControls(int num)
         {
             // Mostrar la tab dependiendo de la decision en form1
             if (num == 2)
+            {
                 tabControl1.TabPages.Remove(tabPage1);
+                cargarPuntajes();
+            }
             else
             {
-                cargarPuntajes();
-
                 tabControl1.TabPages.Remove(tabPage2);
             }
             
