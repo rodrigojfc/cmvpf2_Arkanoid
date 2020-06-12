@@ -2,17 +2,19 @@
 using System.Data;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Media;
 
 // AUN NO SE HA CAMBIADO A USERCONTROL
 namespace Arkanoid
 {
     public partial class GameUI : Form
     {
-        private CustomPictureBox [,] cpb;
+        bool rp = true;
+
+        private CustomPictureBox[,] cpb;
         private PictureBox ball;
         private int score = 0;
         private DataRow dt;
+
         public GameUI(DataRow playerData)
         {
             InitializeComponent();
@@ -25,6 +27,8 @@ namespace Arkanoid
 
         private void GameUI_Load(object sender, EventArgs e)
         {
+            //label1.Text = "Jugador: " + dt.;
+
             // Obtener y mostrar la barra de jugador y la boda
             pictureBox1.BackgroundImage = Image.FromFile("../../Img/Player.png");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
@@ -41,30 +45,29 @@ namespace Arkanoid
             ball.Left = pictureBox1.Left + (pictureBox1.Width / 2) - (ball.Width / 2);
 
             Controls.Add(ball);
-            
+
             LoadTiles();
             timer1.Start();
         }
 
         private void LoadTiles()
         {
-            
             // Metodo para cargar los bloques
             int xAxis = 20;
             int yAxis = 5;
 
-            int pbHeight = (int)(Height * 0.3) / yAxis;
+            int pbHeight = (int) (Height * 0.3) / yAxis;
             int pbWidth = (Width - (xAxis - 20)) / xAxis;
 
             cpb = new CustomPictureBox[yAxis, xAxis];
 
-            for(int i = 0; i < yAxis; i++)
+            for (int i = 0; i < yAxis; i++)
             {
-                for(int j = 0; j < xAxis; j++)
+                for (int j = 0; j < xAxis; j++)
                 {
                     cpb[i, j] = new CustomPictureBox();
-                    
-                    if(i == 0)
+
+                    if (i == 0)
                         cpb[i, j].Golpes = 2;
                     else
                         cpb[i, j].Golpes = 1;
@@ -74,7 +77,7 @@ namespace Arkanoid
 
                     // Posicion de left, y posicion de top
                     cpb[i, j].Left = j * pbWidth;
-                    cpb[i, j].Top = i * pbHeight;
+                    cpb[i, j].Top = (i + 1) * pbHeight;
 
                     // Si el valor de i = 0, entonces colocar ruta de imagen de bloque blindada
 
@@ -88,20 +91,20 @@ namespace Arkanoid
                     {
                         cpb[i, j].BackgroundImage = Image.FromFile("../../Img/" + GRN() + ".png");
                         cpb[i, j].BackgroundImageLayout = ImageLayout.Stretch;
-                        
                     }
+
                     cpb[i, j].Tag = "tileTag";
 
-                    Controls.Add(cpb[i,j]);
+                    Controls.Add(cpb[i, j]);
                 }
             }
         }
 
         private int GRN()
         {
-            return new Random().Next(1,9);
+            return new Random().Next(1, 9);
         }
-        
+
 
         private void GameUI_MouseMove(object sender, MouseEventArgs e)
         {
@@ -120,8 +123,7 @@ namespace Arkanoid
                     pictureBox1.Left = e.X;
             }
         }
-        
-        
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -130,11 +132,10 @@ namespace Arkanoid
 
             ball.Left += GameData.dirX;
             ball.Top += GameData.dirY;
-            
-            
+
 
             rebotarPelota();
-            
+
             /*
             if (ball.Bounds.IntersectsWith(x.Bounds))
             {
@@ -150,7 +151,6 @@ namespace Arkanoid
 
                 return;
             } */
-            
         }
 
 
@@ -159,59 +159,70 @@ namespace Arkanoid
             if (e.KeyCode == Keys.Space)
                 GameData.juegoIniciado = true;
         }
-        
-        
+
+
         private void rebotarPelota()
         {
-            
             // Metodo para rebotar la pelota
-            if (ball.Bottom > Height)
-            {
-                addScores(dt);
-                Application.Exit();
-            }
 
-            if (ball.Left < 0 || ball.Right > Width)
+            if (rp==true)
             {
-                GameData.dirX = -GameData.dirX;
-                return;
-            }
-
-            if (ball.Bounds.IntersectsWith(pictureBox1.Bounds) ||  ball.Top < 0)
-            {
-                GameData.dirY = -GameData.dirY;
-            }
-            
-            foreach (CustomPictureBox x in cpb)
-            {
-                if (x is Control && x.Tag == "tileTag")
+                //Metodo de al salirse la pelota regresa al menu principal
+                if (ball.Bottom > Height)
                 {
-                    if (ball.Bounds.IntersectsWith(x.Bounds))
+                    rp = false;
+                    addScores(dt);
+                    MessageBox.Show("El juego termino", "Arkanoid", MessageBoxButtons.OK);
+                    Form1 form = new Form1();
+                    form.Show();
+                    Hide();
+
+                    
+                    return;
+                }
+
+                if (ball.Bottom < 20)
+                {
+                    GameData.dirX = -GameData.dirX;
+                    return;
+                }
+
+                if (ball.Left < 0 || ball.Right > Width)
+                {
+                    GameData.dirX = -GameData.dirX;
+                    return;
+                }
+
+                if (ball.Bounds.IntersectsWith(pictureBox1.Bounds) || ball.Top < 0)
+                {
+                    GameData.dirY = -GameData.dirY;
+                }
+
+                foreach (CustomPictureBox x in cpb)
+                {
+                    if (x is Control && x.Tag == "tileTag")
                     {
-
-                        x.Golpes--;
-                        if (x.Golpes == 0)
+                        if (ball.Bounds.IntersectsWith(x.Bounds))
                         {
-                            score += 5;
-                            Controls.Remove(x);
+                            x.Golpes--;
+                            if (x.Golpes == 0)
+                            {
+                                score += 5;
+                                label2.Text = "Score: " + score;
+                                Controls.Remove(x);
 
-                            GameData.dirY = -GameData.dirY;
+                                GameData.dirY = -GameData.dirY;
 
-                            return;
-                            
+                                return;
+                            }
                         }
                     }
                 }
             }
-            
-            
-            
         }
 
         private void addScores(DataRow playerData)
         {
-            
-
             int playerID = Convert.ToInt32(playerData[0].ToString());
 
             var sql = string.Format("insert into score(score, playerid) values({0}, {1})", score, playerID);
@@ -224,6 +235,5 @@ namespace Arkanoid
                 MessageBox.Show("No se pudo agregar el puntaje", "Arkanoid", MessageBoxButtons.OK);
             }
         }
-        
     }
 }
