@@ -23,7 +23,7 @@ namespace Arkanoid
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            DataRowView player1 = (DataRowView) comboBox1.SelectedItem;
+            DataRowView player1 = (DataRowView) cmbPlayer.SelectedItem;
             DataRow player = (DataRow) player1.Row;
             GameUI Game = new GameUI(player);
             // Esconder Form1 y mostrar Game
@@ -40,9 +40,9 @@ namespace Arkanoid
             try
             {
                 var dt = ConnectionBD.ExecuteQuery(sql);
-                comboBox1.DataSource = dt;
-                comboBox1.ValueMember = "playerid";
-                comboBox1.DisplayMember = "username";
+                cmbPlayer.DataSource = dt;
+                cmbPlayer.ValueMember = "playerid";
+                cmbPlayer.DisplayMember = "username";
             }
             catch (Exception)
             {
@@ -53,7 +53,7 @@ namespace Arkanoid
         }
 
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void btnCreatePlayer_Click_1(object sender, EventArgs e)
         {
             // Esconder form1 y mostrar crear jugador
             GameMenu menu = new GameMenu(1);
@@ -61,7 +61,7 @@ namespace Arkanoid
             menu.Show();        
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnViewScores_Click(object sender, EventArgs e)
         {
             // Esconder form1 y mostrar puntajes
             GameMenu menu = new GameMenu(2);
@@ -72,6 +72,11 @@ namespace Arkanoid
         private void Form1_Load(object sender, EventArgs e)
         {
             cargarCombo();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

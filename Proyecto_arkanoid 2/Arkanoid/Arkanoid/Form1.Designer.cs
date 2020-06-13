@@ -29,12 +29,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnPlay = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnViewScores = new System.Windows.Forms.Button();
+            this.btnCreatePlayer = new System.Windows.Forms.Button();
+            this.cmbPlayer = new System.Windows.Forms.ComboBox();
             this.tloMain = new System.Windows.Forms.TableLayoutPanel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.tloMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,88 +45,107 @@
             this.btnPlay.AutoSize = true;
             this.btnPlay.BackColor = System.Drawing.Color.LightGray;
             this.btnPlay.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPlay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnPlay.Location = new System.Drawing.Point(257, 146);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnPlay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold,
+                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnPlay.Location = new System.Drawing.Point(343, 225);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(86, 34);
+            this.btnPlay.Size = new System.Drawing.Size(114, 52);
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "Jugar";
             this.btnPlay.UseVisualStyleBackColor = false;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
-            // button1
+            // btnViewScores
             // 
-            this.button1.AutoSize = true;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(257, 182);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 34);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Ver puntajes";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnViewScores.AutoSize = true;
+            this.btnViewScores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnViewScores.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnViewScores.Location = new System.Drawing.Point(343, 281);
+            this.btnViewScores.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnViewScores.Name = "btnViewScores";
+            this.btnViewScores.Size = new System.Drawing.Size(114, 52);
+            this.btnViewScores.TabIndex = 1;
+            this.btnViewScores.Text = "Ver puntajes";
+            this.btnViewScores.UseVisualStyleBackColor = true;
+            this.btnViewScores.Click += new System.EventHandler(this.btnViewScores_Click);
             // 
-            // button2
+            // btnCreatePlayer
             // 
-            this.button2.AutoSize = true;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(257, 218);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 34);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Crear jugador";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.btnCreatePlayer.AutoSize = true;
+            this.btnCreatePlayer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreatePlayer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCreatePlayer.Location = new System.Drawing.Point(343, 337);
+            this.btnCreatePlayer.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnCreatePlayer.Name = "btnCreatePlayer";
+            this.btnCreatePlayer.Size = new System.Drawing.Size(114, 52);
+            this.btnCreatePlayer.TabIndex = 2;
+            this.btnCreatePlayer.Text = "Crear jugador";
+            this.btnCreatePlayer.UseVisualStyleBackColor = true;
+            this.btnCreatePlayer.Click += new System.EventHandler(this.btnCreatePlayer_Click_1);
             // 
-            // comboBox1
+            // cmbPlayer
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(258, 112);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(84, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cmbPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPlayer.FormattingEnabled = true;
+            this.cmbPlayer.Location = new System.Drawing.Point(344, 173);
+            this.cmbPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbPlayer.Name = "cmbPlayer";
+            this.cmbPlayer.Size = new System.Drawing.Size(112, 28);
+            this.cmbPlayer.TabIndex = 3;
             // 
             // tloMain
             // 
             this.tloMain.BackColor = System.Drawing.Color.Transparent;
             this.tloMain.ColumnCount = 3;
-            this.tloMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.5F));
-            this.tloMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tloMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.5F));
-            this.tloMain.Controls.Add(this.comboBox1, 1, 1);
-            this.tloMain.Controls.Add(this.button2, 1, 4);
+            this.tloMain.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.5F));
+            this.tloMain.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tloMain.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.5F));
+            this.tloMain.Controls.Add(this.cmbPlayer, 1, 1);
+            this.tloMain.Controls.Add(this.btnCreatePlayer, 1, 4);
             this.tloMain.Controls.Add(this.btnPlay, 1, 2);
-            this.tloMain.Controls.Add(this.button1, 1, 3);
+            this.tloMain.Controls.Add(this.btnViewScores, 1, 3);
+            this.tloMain.Controls.Add(this.btnExit, 1, 5);
             this.tloMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tloMain.Location = new System.Drawing.Point(0, 0);
-            this.tloMain.Margin = new System.Windows.Forms.Padding(2);
+            this.tloMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tloMain.Name = "tloMain";
-            this.tloMain.RowCount = 6;
+            this.tloMain.RowCount = 7;
             this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tloMain.Size = new System.Drawing.Size(600, 365);
+            this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tloMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tloMain.Size = new System.Drawing.Size(800, 561);
             this.tloMain.TabIndex = 4;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnExit.Location = new System.Drawing.Point(343, 395);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(114, 39);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "Salir";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(600, 365);
+            this.ClientSize = new System.Drawing.Size(800, 561);
             this.Controls.Add(this.tloMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -135,11 +156,13 @@
         }
 
         private System.Windows.Forms.Button btnPlay;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TableLayoutPanel tloMain;
 
         #endregion
+
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnViewScores;
+        private System.Windows.Forms.Button btnCreatePlayer;
+        private System.Windows.Forms.ComboBox cmbPlayer;
     }
 }

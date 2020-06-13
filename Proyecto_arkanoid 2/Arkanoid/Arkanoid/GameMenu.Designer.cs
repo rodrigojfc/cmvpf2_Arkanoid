@@ -35,20 +35,20 @@ namespace Arkanoid
                 new System.ComponentModel.ComponentResourceManager(typeof(GameMenu));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnBackToMain = new System.Windows.Forms.Button();
+            this.btnPlayerCreated = new System.Windows.Forms.Button();
+            this.txtNewPlayer = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tloScores = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnBackToMain2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tloScores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -76,55 +76,73 @@ namespace Arkanoid
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Crear usuario";
             // 
-            // button3
+            // tableLayoutPanel1
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(622, 277);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 51);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Volver";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(
+                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.btnBackToMain, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnPlayerCreated, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtNewPlayer, 2, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 5);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(
+                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 681);
+            this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // button1
+            // btnBackToMain
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(262, 277);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 51);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Crear";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBackToMain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBackToMain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnBackToMain.Location = new System.Drawing.Point(622, 277);
+            this.btnBackToMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBackToMain.Name = "btnBackToMain";
+            this.btnBackToMain.Size = new System.Drawing.Size(146, 51);
+            this.btnBackToMain.TabIndex = 2;
+            this.btnBackToMain.Text = "Volver";
+            this.btnBackToMain.UseVisualStyleBackColor = true;
+            this.btnBackToMain.Click += new System.EventHandler(this.btnBackToMain_Click);
             // 
-            // textBox1
+            // btnPlayerCreated
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(416, 104);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 27);
-            this.textBox1.TabIndex = 0;
+            this.btnPlayerCreated.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPlayerCreated.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnPlayerCreated.Location = new System.Drawing.Point(262, 277);
+            this.btnPlayerCreated.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPlayerCreated.Name = "btnPlayerCreated";
+            this.btnPlayerCreated.Size = new System.Drawing.Size(146, 51);
+            this.btnPlayerCreated.TabIndex = 1;
+            this.btnPlayerCreated.Text = "Crear";
+            this.btnPlayerCreated.UseVisualStyleBackColor = true;
+            this.btnPlayerCreated.Click += new System.EventHandler(this.btnPlayerCreated_Click);
             // 
-            // button2
+            // txtNewPlayer
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(911, 5);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 58);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Volver";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.txtNewPlayer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtNewPlayer.Location = new System.Drawing.Point(416, 104);
+            this.txtNewPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNewPlayer.Name = "txtNewPlayer";
+            this.txtNewPlayer.Size = new System.Drawing.Size(198, 27);
+            this.txtNewPlayer.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -151,9 +169,10 @@ namespace Arkanoid
             this.tloScores.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tloScores.Controls.Add(this.dataGridView1, 1, 1);
-            this.tloScores.Controls.Add(this.button2, 3, 0);
+            this.tloScores.Controls.Add(this.btnBackToMain2, 3, 0);
             this.tloScores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tloScores.Location = new System.Drawing.Point(4, 5);
+            this.tloScores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tloScores.Name = "tloScores";
             this.tloScores.RowCount = 3;
             this.tloScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -175,37 +194,20 @@ namespace Arkanoid
             this.dataGridView1.Size = new System.Drawing.Size(301, 398);
             this.dataGridView1.TabIndex = 2;
             // 
-            // tableLayoutPanel1
+            // btnBackToMain2
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.button3, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 5);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 681);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.btnBackToMain2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnBackToMain2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBackToMain2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBackToMain2.ForeColor = System.Drawing.Color.Black;
+            this.btnBackToMain2.Location = new System.Drawing.Point(911, 5);
+            this.btnBackToMain2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBackToMain2.Name = "btnBackToMain2";
+            this.btnBackToMain2.Size = new System.Drawing.Size(118, 58);
+            this.btnBackToMain2.TabIndex = 1;
+            this.btnBackToMain2.Text = "Volver";
+            this.btnBackToMain2.UseVisualStyleBackColor = false;
+            this.btnBackToMain2.Click += new System.EventHandler(this.btnBackToMain2_Click);
             // 
             // GameMenu
             // 
@@ -221,26 +223,26 @@ namespace Arkanoid
             this.Text = "GameMenu";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tloScores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox textBox1;
 
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tloScores;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TextBox txtNewPlayer;
+        private System.Windows.Forms.Button btnPlayerCreated;
+        private System.Windows.Forms.Button btnBackToMain;
+        private System.Windows.Forms.Button btnBackToMain2;
     }
 }
