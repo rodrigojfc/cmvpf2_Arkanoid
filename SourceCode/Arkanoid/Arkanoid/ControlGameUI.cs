@@ -208,10 +208,10 @@ namespace Arkanoid
                     //return;
                 }
 
-                if (ball.Top > Height)
+                if ((ball.Bounds.IntersectsWith(nombrePlayer.Bounds)) ||  (ball.Bounds.IntersectsWith(playerScore.Bounds)))
                 {
-                    GameData.dirX = -GameData.dirX;
-                    return;
+                    GameData.dirY = -GameData.dirY;
+                    
                 }
 
                 if (ball.Bottom < 20)
