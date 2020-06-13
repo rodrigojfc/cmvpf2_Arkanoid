@@ -49,8 +49,7 @@ namespace Arkanoid
         
         public void cargarPuntajes()
         {
-            //opcion 1
-            //Mostrar los puntajes en el dataGrid
+            //Mostrar los top 10 puntajes en el dataGrid
             DataTable sql = null;
 
             try
@@ -64,21 +63,6 @@ namespace Arkanoid
                 MessageBox.Show("Ha ocurrido un error");
             }
 
-            // opcion 2 con lista 
-            /*string sql = "select * from score";
-           
-            DataTable dt = ConnectionBD.ExecuteQuery(sql);
-
-            List<Score> lista = new List<Score>();
-            foreach (DataRow fila in dt.Rows)
-            {
-                Score sco = new Score();
-                sco.scoreid = Convert.ToInt32(fila[0].ToString());
-                sco.score = Convert.ToInt32(fila[1].ToString());
-                sco.playerid = Convert.ToInt32(fila[2].ToString());
-                
-                lista.Add(sco);
-            }*/
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = sql;
         }

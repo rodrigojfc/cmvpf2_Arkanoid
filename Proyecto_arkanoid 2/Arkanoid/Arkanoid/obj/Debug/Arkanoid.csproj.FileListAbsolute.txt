@@ -169,6 +169,7 @@ C:\Users\Lauri\Documents\01 Proyecto POO por si se arruina este dejo el otro\cmv
 C:\Users\Lauri\Documents\01 Proyecto POO por si se arruina este dejo el otro\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\bin\Debug\System.ValueTuple.xml
 C:\Users\Lauri\Documents\01 Proyecto POO por si se arruina este dejo el otro\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csprojAssemblyReference.cache
 C:\Users\Lauri\Documents\01 Proyecto POO por si se arruina este dejo el otro\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\obj\Debug\Arkanoid.exe.config
+C:\Users\Lauri\Documents\01 Proyecto POO por si se arruina este dejo el otro\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\obj\Debug\Arkanoid.ControlGameUI.resources
 C:\Users\Lauri\Documents\01 Proyecto POO por si se arruina este dejo el otro\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\obj\Debug\Arkanoid.Form1.resources
 C:\Users\Lauri\Documents\01 Proyecto POO por si se arruina este dejo el otro\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\obj\Debug\Arkanoid.GameMenu.resources
 C:\Users\Lauri\Documents\01 Proyecto POO por si se arruina este dejo el otro\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\obj\Debug\Arkanoid.GameUI.resources

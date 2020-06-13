@@ -12,6 +12,8 @@ namespace Arkanoid
 {
     public partial class Form1 : Form
     {
+        private ControlGameUI cg;
+        
         public Form1()
         {
             InitializeComponent();
@@ -23,35 +25,57 @@ namespace Arkanoid
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            DataRowView player1 = (DataRowView) cmbPlayer.SelectedItem;
+            cg = new ControlGameUI(cmbPlayer.Text);
+            
+            cg.Dock = DockStyle.Fill;
+
+            cg.Width = Width;
+            cg.Height = Height;
+
+            cg.EndGame = () =>
+            {
+                cg = null;
+                cg = new ControlGameUI(cmbPlayer.Text);
+
+                MessageBox.Show("Has perdido");
+
+                cg.Hide();
+                tloMain.Show();
+            };
+            
+            // Esconder tablelayout del menu principal y mostrar user control del juego
+            tloMain.Hide();
+            Controls.Add(cg);
+            
+            // CODIGO PREVIO
+            
+            /*DataRowView player1 = (DataRowView) cmbPlayer.SelectedItem;
             DataRow player = (DataRow) player1.Row;
             GameUI Game = new GameUI(player);
-            // Esconder Form1 y mostrar Game
+            
             Hide();
-            Game.Show();
+            Game.Show();*/
             
         }
-
 
         public void cargarCombo()
         {
             // Mostrar los nombres de los jugadores registrados en el combobox
+            
             var sql = "Select * from player";
             try
             {
                 var dt = ConnectionBD.ExecuteQuery(sql);
-                cmbPlayer.DataSource = dt;
+                cmbPlayer.DataSource = null;
                 cmbPlayer.ValueMember = "playerid";
                 cmbPlayer.DisplayMember = "username";
+                cmbPlayer.DataSource = dt;
             }
             catch (Exception)
             {
                 MessageBox.Show("Ha ocurrido un error", "Arkanoid", MessageBoxButtons.OK);
             }
-
-            
         }
-
 
         private void btnCreatePlayer_Click_1(object sender, EventArgs e)
         {
@@ -72,6 +96,30 @@ namespace Arkanoid
         private void Form1_Load(object sender, EventArgs e)
         {
             cargarCombo();
+            
+            // LANZABA EXCEPCION
+            
+            //DataRowView player1 = (DataRowView) cmbPlayer.SelectedItem;
+            //DataRow player = player1.Row;
+            
+            /*cg = new ControlGameUI(player);
+            
+            cg.Dock = DockStyle.Fill;
+
+            cg.Width = Width;
+            cg.Height = Height;
+
+            cg.EndGame = () =>
+            {
+                cg = null;
+                cg = new ControlGameUI(cmbPlayer.Text);
+
+                MessageBox.Show("Has perdido");
+
+                cg.Hide();
+                tloMain.Show();
+            };*/
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)

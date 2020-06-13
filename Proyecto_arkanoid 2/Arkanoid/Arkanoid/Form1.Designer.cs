@@ -129,7 +129,8 @@
             // 
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnExit.Location = new System.Drawing.Point(343, 395);
+            this.btnExit.Location = new System.Drawing.Point(343, 394);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(114, 39);
             this.btnExit.TabIndex = 4;
