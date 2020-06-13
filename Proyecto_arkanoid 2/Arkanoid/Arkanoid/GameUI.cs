@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Drawing;
 
-// AUN NO SE HA CAMBIADO A USERCONTROL
+// SE CAMBIÓ A USERCONTROL 
 namespace Arkanoid
 {
     public partial class GameUI : Form

@@ -148,11 +148,11 @@ namespace Arkanoid
             // 
             this.tabPage2.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("tabPage2.BackgroundImage")));
             this.tabPage2.Controls.Add(this.tloScores);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(1041, 691);
+            this.tabPage2.Size = new System.Drawing.Size(1041, 695);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Puntajes";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@ namespace Arkanoid
             this.tloScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tloScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tloScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tloScores.Size = new System.Drawing.Size(1033, 681);
+            this.tloScores.Size = new System.Drawing.Size(1033, 685);
             this.tloScores.TabIndex = 2;
             // 
             // dataGridView1
@@ -191,7 +191,7 @@ namespace Arkanoid
             this.dataGridView1.Location = new System.Drawing.Point(365, 73);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(301, 398);
+            this.dataGridView1.Size = new System.Drawing.Size(301, 401);
             this.dataGridView1.TabIndex = 2;
             // 
             // btnBackToMain2

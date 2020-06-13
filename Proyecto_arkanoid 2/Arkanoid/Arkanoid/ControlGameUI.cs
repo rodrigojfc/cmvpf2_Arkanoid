@@ -11,6 +11,8 @@ namespace Arkanoid
 
         private CustomPictureBox[,] cpb;
         private PictureBox ball;
+        private Label nombrePlayer;
+        private Label playerScore;
         private int score = 0;
         private string player;
         //private DataRow player;
@@ -30,9 +32,7 @@ namespace Arkanoid
         
         private void GameUI_Load(object sender, EventArgs e)
         {
-            label1.Text = "Jugador: " + player;
-
-            // Obtener y mostrar la barra de jugador y la boda
+            // Obtener y mostrar la barra de jugador y la bola
             pictureBox1.BackgroundImage = Image.FromFile("../../Img/Player.png");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -48,6 +48,37 @@ namespace Arkanoid
             ball.Left = pictureBox1.Left + (pictureBox1.Width / 2) - (ball.Width / 2);
 
             Controls.Add(ball);
+            
+            // Obtener y mostrar labels
+            nombrePlayer = new Label();
+            nombrePlayer.Location = new Point((Width/2), 0);
+            nombrePlayer.Width = Width / 2;
+            nombrePlayer.Height = Height / 20;
+            nombrePlayer.BackColor = Color.Blue;
+            nombrePlayer.Text = "Jugador: ";
+            nombrePlayer.Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold,
+                GraphicsUnit.Point, ((byte) (0)));
+            nombrePlayer.TextAlign = ContentAlignment.MiddleLeft;
+            nombrePlayer.ForeColor = SystemColors.ButtonHighlight;
+            nombrePlayer.BackgroundImageLayout = ImageLayout.Stretch;
+            
+            Controls.Add(nombrePlayer);
+            
+            playerScore = new Label();
+            playerScore.Location = new Point(1, 0);
+            playerScore.Width = Width / 2;
+            playerScore.Height = Height / 20;
+            playerScore.BackColor = Color.Blue;
+            playerScore.Text = "Score: 0";
+            playerScore.Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold,
+                GraphicsUnit.Point, ((byte) (0)));
+            playerScore.TextAlign = ContentAlignment.MiddleLeft;
+            playerScore.ForeColor = SystemColors.ButtonHighlight;
+            playerScore.BackgroundImageLayout = ImageLayout.Stretch;
+            
+            Controls.Add(playerScore);
+            
+            nombrePlayer.Text = "Jugador: " + player;
 
             LoadTiles();
             timer1.Start();
@@ -211,7 +242,7 @@ namespace Arkanoid
                             if (x.Golpes == 0)
                             {
                                 score += 5;
-                                label2.Text = "Score: " + score;
+                                playerScore.Text = "Score: " + score;
                                 Controls.Remove(x);
 
                                 GameData.dirY = -GameData.dirY;
