@@ -57,7 +57,7 @@ namespace Arkanoid
             {
                 sql = ConnectionBD.ExecuteQuery("select pl.username, sc.score " +
                                                 "from player pl, score sc " +
-                                                "where sc.playerid = pl.playerid order by sc.score limit 10");
+                                                "where sc.playerid = pl.playerid order by sc.score desc limit 10");
             }
             catch (Exception ex)
             {
