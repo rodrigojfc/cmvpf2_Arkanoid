@@ -39,10 +39,10 @@ namespace Arkanoid
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(52, 475);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(39, 309);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 39);
+            this.pictureBox1.Size = new System.Drawing.Size(124, 25);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -53,13 +53,13 @@ namespace Arkanoid
             // 
             // ControlGameUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Blue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))), ((int) (((byte) (0)))), ((int) (((byte) (72)))));
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "ControlGameUI";
-            this.Size = new System.Drawing.Size(860, 561);
+            this.Size = new System.Drawing.Size(645, 365);
             this.Load += new System.EventHandler(this.GameUI_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameUI_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GameUI_MouseMove);

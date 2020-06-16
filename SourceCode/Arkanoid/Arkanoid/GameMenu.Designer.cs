@@ -31,8 +31,7 @@ namespace Arkanoid
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(GameMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameMenu));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -57,10 +56,9 @@ namespace Arkanoid
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1049, 724);
+            this.tabControl1.Size = new System.Drawing.Size(787, 471);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -68,11 +66,10 @@ namespace Arkanoid
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(1041, 691);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(779, 445);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Crear usuario";
             // 
@@ -80,43 +77,33 @@ namespace Arkanoid
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.btnBackToMain, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnPlayerCreated, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtNewPlayer, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 5);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(
-                new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 681);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(773, 439);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // btnBackToMain
             // 
             this.btnBackToMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBackToMain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnBackToMain.Location = new System.Drawing.Point(622, 277);
-            this.btnBackToMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBackToMain.Location = new System.Drawing.Point(465, 177);
             this.btnBackToMain.Name = "btnBackToMain";
-            this.btnBackToMain.Size = new System.Drawing.Size(146, 51);
+            this.btnBackToMain.Size = new System.Drawing.Size(109, 33);
             this.btnBackToMain.TabIndex = 2;
             this.btnBackToMain.Text = "Volver";
             this.btnBackToMain.UseVisualStyleBackColor = true;
@@ -126,10 +113,9 @@ namespace Arkanoid
             // 
             this.btnPlayerCreated.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPlayerCreated.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnPlayerCreated.Location = new System.Drawing.Point(262, 277);
-            this.btnPlayerCreated.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPlayerCreated.Location = new System.Drawing.Point(196, 177);
             this.btnPlayerCreated.Name = "btnPlayerCreated";
-            this.btnPlayerCreated.Size = new System.Drawing.Size(146, 51);
+            this.btnPlayerCreated.Size = new System.Drawing.Size(109, 33);
             this.btnPlayerCreated.TabIndex = 1;
             this.btnPlayerCreated.Text = "Crear";
             this.btnPlayerCreated.UseVisualStyleBackColor = true;
@@ -138,21 +124,19 @@ namespace Arkanoid
             // txtNewPlayer
             // 
             this.txtNewPlayer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtNewPlayer.Location = new System.Drawing.Point(416, 104);
-            this.txtNewPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNewPlayer.Location = new System.Drawing.Point(311, 64);
             this.txtNewPlayer.Name = "txtNewPlayer";
-            this.txtNewPlayer.Size = new System.Drawing.Size(198, 27);
+            this.txtNewPlayer.Size = new System.Drawing.Size(148, 20);
             this.txtNewPlayer.TabIndex = 0;
             // 
             // tabPage2
             // 
             this.tabPage2.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("tabPage2.BackgroundImage")));
             this.tabPage2.Controls.Add(this.tloScores);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(1041, 695);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(779, 445);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Puntajes";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -160,38 +144,32 @@ namespace Arkanoid
             // tloScores
             // 
             this.tloScores.ColumnCount = 4;
-            this.tloScores.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tloScores.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tloScores.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
-            this.tloScores.ColumnStyles.Add(
-                new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tloScores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tloScores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tloScores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23F));
+            this.tloScores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.tloScores.Controls.Add(this.dataGridView1, 1, 1);
             this.tloScores.Controls.Add(this.btnBackToMain2, 3, 0);
             this.tloScores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tloScores.Location = new System.Drawing.Point(4, 5);
-            this.tloScores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tloScores.Location = new System.Drawing.Point(3, 3);
+            this.tloScores.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tloScores.Name = "tloScores";
             this.tloScores.RowCount = 3;
             this.tloScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tloScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tloScores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tloScores.Size = new System.Drawing.Size(1033, 685);
+            this.tloScores.Size = new System.Drawing.Size(773, 439);
             this.tloScores.TabIndex = 2;
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode =
-                System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(365, 73);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1.Location = new System.Drawing.Point(273, 46);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(301, 401);
+            this.dataGridView1.Size = new System.Drawing.Size(225, 257);
             this.dataGridView1.TabIndex = 2;
             // 
             // btnBackToMain2
@@ -200,10 +178,9 @@ namespace Arkanoid
             this.btnBackToMain2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBackToMain2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnBackToMain2.ForeColor = System.Drawing.Color.Black;
-            this.btnBackToMain2.Location = new System.Drawing.Point(911, 5);
-            this.btnBackToMain2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBackToMain2.Location = new System.Drawing.Point(681, 3);
             this.btnBackToMain2.Name = "btnBackToMain2";
-            this.btnBackToMain2.Size = new System.Drawing.Size(118, 58);
+            this.btnBackToMain2.Size = new System.Drawing.Size(89, 37);
             this.btnBackToMain2.TabIndex = 1;
             this.btnBackToMain2.Text = "Volver";
             this.btnBackToMain2.UseVisualStyleBackColor = false;
@@ -211,13 +188,12 @@ namespace Arkanoid
             // 
             // GameMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
-            this.ClientSize = new System.Drawing.Size(1049, 724);
+            this.ClientSize = new System.Drawing.Size(787, 471);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "GameMenu";
             this.Text = "GameMenu";
@@ -231,18 +207,17 @@ namespace Arkanoid
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-
-        #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TableLayoutPanel tloScores;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox txtNewPlayer;
-        private System.Windows.Forms.Button btnPlayerCreated;
         private System.Windows.Forms.Button btnBackToMain;
         private System.Windows.Forms.Button btnBackToMain2;
+        private System.Windows.Forms.Button btnPlayerCreated;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TableLayoutPanel tloScores;
+        private System.Windows.Forms.TextBox txtNewPlayer;
+
+        #endregion
     }
 }

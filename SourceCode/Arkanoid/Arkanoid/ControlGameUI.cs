@@ -18,7 +18,7 @@ namespace Arkanoid
         //private DataRow player;
         
         private delegate void BallActions();
-        private readonly BallActions BallMoves;
+        private  BallActions BallMoves;
         public Action EndGame;
         
         public ControlGameUI(string player1)
@@ -54,7 +54,7 @@ namespace Arkanoid
             nombrePlayer.Location = new Point((Width/2), 0);
             nombrePlayer.Width = Width / 2;
             nombrePlayer.Height = Height / 20;
-            nombrePlayer.BackColor = Color.Blue;
+            nombrePlayer.BackColor = Color.Black;
             nombrePlayer.Text = "Jugador: ";
             nombrePlayer.Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold,
                 GraphicsUnit.Point, ((byte) (0)));
@@ -68,7 +68,7 @@ namespace Arkanoid
             playerScore.Location = new Point(1, 0);
             playerScore.Width = Width / 2;
             playerScore.Height = Height / 20;
-            playerScore.BackColor = Color.Blue;
+            playerScore.BackColor = Color.Black;
             playerScore.Text = "Score: 0";
             playerScore.Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold,
                 GraphicsUnit.Point, ((byte) (0)));
@@ -165,22 +165,7 @@ namespace Arkanoid
                 return;
 
             BallMoves?.Invoke();
-            
-            /*
-            if (ball.Bounds.IntersectsWith(x.Bounds))
-            {
-                x.Golpes--;
-
-                if (cpb[i, j].Golpes == 0)
-                {
-                    Controls.Remove(cpb[i,j]);
-                        
-                }
-
-                GameData.dirY = -GameData.dirY;
-
-                return;
-            } */
+           
         }
 
 
@@ -202,10 +187,12 @@ namespace Arkanoid
                     //rp = false;
 
                     timer1.Stop();
-                    EndGame?.Invoke();
+                    GameData.juegoIniciado = false;
+                    BallMoves = null;
+                    EndGame.Invoke();
                     
                     addScores(player);
-                    //return;
+                    return;
                 }
 
                 if ((ball.Bounds.IntersectsWith(nombrePlayer.Bounds)) ||  (ball.Bounds.IntersectsWith(playerScore.Bounds)))

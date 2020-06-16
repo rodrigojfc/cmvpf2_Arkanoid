@@ -32,16 +32,7 @@ namespace Arkanoid
             cg.Width = Width;
             cg.Height = Height;
 
-            cg.EndGame = () =>
-            {
-                cg = null;
-                cg = new ControlGameUI(cmbPlayer.Text);
-
-                MessageBox.Show("Has perdido");
-
-                cg.Hide();
-                tloMain.Show();
-            };
+            
             
             // Esconder tablelayout del menu principal y mostrar user control del juego
             tloMain.Hide();
@@ -55,6 +46,16 @@ namespace Arkanoid
             
             Hide();
             Game.Show();*/
+            cg.EndGame = () =>
+            {
+                //cg = null;
+                //cg = new ControlGameUI(cmbPlayer.Text);
+
+                MessageBox.Show("Has perdido");
+
+                cg.Hide();
+                tloMain.Show();
+            };
             
         }
 

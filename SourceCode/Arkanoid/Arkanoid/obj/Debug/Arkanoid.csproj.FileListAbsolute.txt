@@ -143,3 +143,39 @@ C:\Users\oscar\OneDrive\Escritorio\POO_proyecto\cmvpf2_Arkanoid\Proyecto_arkanoi
 C:\Users\oscar\OneDrive\Escritorio\POO_proyecto\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csproj.CopyComplete
 C:\Users\oscar\OneDrive\Escritorio\POO_proyecto\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\obj\Debug\Arkanoid.exe
 C:\Users\oscar\OneDrive\Escritorio\POO_proyecto\cmvpf2_Arkanoid\Proyecto_arkanoid 2\Arkanoid\Arkanoid\obj\Debug\Arkanoid.pdb
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\Arkanoid.exe.config
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\Arkanoid.exe
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\Arkanoid.pdb
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\Npgsql.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Buffers.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Memory.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Text.Json.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.ValueTuple.dll
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\Npgsql.pdb
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\Npgsql.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Buffers.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Memory.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Text.Json.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\bin\Debug\System.ValueTuple.xml
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csprojAssemblyReference.cache
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.exe.config
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.ControlGameUI.resources
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.Form1.resources
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.GameMenu.resources
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.GameUI.resources
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.Properties.Resources.resources
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csproj.GenerateResource.cache
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.csproj.CopyComplete
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.exe
+C:\Users\Rodrigo\Desktop\POO\cmvpf2_Arkanoid\SourceCode\Arkanoid\Arkanoid\obj\Debug\Arkanoid.pdb
