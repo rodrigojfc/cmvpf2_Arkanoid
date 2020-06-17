@@ -22,6 +22,18 @@ namespace Arkanoid
             Width = ClientSize.Width;
             WindowState = FormWindowState.Maximized;
         }
+        
+        
+        protected override CreateParams CreateParams
+        {
+            // Metodo para evitar el blink
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
+        }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
@@ -82,16 +94,28 @@ namespace Arkanoid
         {
             // Esconder form1 y mostrar crear jugador
             GameMenu menu = new GameMenu(1);
-            Hide();
-            menu.Show();        
+            
+            menu.CloseAction = () =>
+            {
+                Show();
+            };
+
+            menu.Show();
+            Hide();     
         }
 
         private void btnViewScores_Click(object sender, EventArgs e)
         {
             // Esconder form1 y mostrar puntajes
             GameMenu menu = new GameMenu(2);
-            Hide();
+            
+            menu.CloseAction = () =>
+            {
+                Show();
+            };
+
             menu.Show();
+            Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)

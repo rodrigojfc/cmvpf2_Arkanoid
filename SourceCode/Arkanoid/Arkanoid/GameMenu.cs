@@ -8,6 +8,8 @@ namespace Arkanoid
 {
     public partial class GameMenu : Form
     {
+        public delegate void OnClosedWindow();
+        public OnClosedWindow CloseAction;
         public GameMenu(int choice)
         { 
            InitializeComponent();
@@ -17,6 +19,17 @@ namespace Arkanoid
            Width = ClientSize.Width;
            WindowState = FormWindowState.Maximized;
 
+        }
+        
+        protected override CreateParams CreateParams
+        {
+            // Metodo para evitar el blink
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
         }
 
         private void btnPlayerCreated_Click(object sender, EventArgs e)
@@ -98,6 +111,11 @@ namespace Arkanoid
             Hide();
             ventana.Show();
             
+        }
+
+        private void GameMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CloseAction?.Invoke();
         }
     }
 }
