@@ -2,7 +2,14 @@
 {
     public static class GameData
     {
-        public static bool juegoIniciado = false;
-        public static int dirX = 7, dirY = -dirX;
+        public static bool gameStarted = false;
+        public static int dirX = 7, dirY = -dirX, lifes = 3, score = 0;
+        
+        public static void InitializeGame()
+        {
+            gameStarted = false;
+            lifes = 3;
+            score = 0;
+        }
     }
 }

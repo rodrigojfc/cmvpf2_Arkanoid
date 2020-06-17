@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Arkanoid
@@ -13,17 +6,16 @@ namespace Arkanoid
     public partial class Form1 : Form
     {
         private ControlGameUI cg;
-        
         public Form1()
         {
             InitializeComponent();
+            
             // Extender la ventana en toda la pantalla
             Height = ClientSize.Height;
             Width = ClientSize.Width;
             WindowState = FormWindowState.Maximized;
         }
-        
-        
+
         protected override CreateParams CreateParams
         {
             // Metodo para evitar el blink
@@ -43,39 +35,29 @@ namespace Arkanoid
 
             cg.Width = Width;
             cg.Height = Height;
-
             
-            
-            // Esconder tablelayout del menu principal y mostrar user control del juego
-            tloMain.Hide();
-            Controls.Add(cg);
-            
-            // CODIGO PREVIO
-            
-            /*DataRowView player1 = (DataRowView) cmbPlayer.SelectedItem;
-            DataRow player = (DataRow) player1.Row;
-            GameUI Game = new GameUI(player);
-            
-            Hide();
-            Game.Show();*/
             cg.EndGame = () =>
             {
-                //cg = null;
-                //cg = new ControlGameUI(cmbPlayer.Text);
+                cg = null;
+                cg = new ControlGameUI(cmbPlayer.Text);
 
                 MessageBox.Show("Has perdido");
 
                 cg.Hide();
                 tloMain.Show();
             };
-            
+
+            // Esconder tablelayout del menu principal y mostrar user control del juego
+            tloMain.Hide();
+            Controls.Add(cg);
+
         }
 
-        public void cargarCombo()
+        public void LoadCmbInfo()
         {
             // Mostrar los nombres de los jugadores registrados en el combobox
-            
             var sql = "Select * from player";
+            
             try
             {
                 var dt = ConnectionBD.ExecuteQuery(sql);
@@ -120,34 +102,15 @@ namespace Arkanoid
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cargarCombo();
-            
-            // LANZABA EXCEPCION
-            
-            //DataRowView player1 = (DataRowView) cmbPlayer.SelectedItem;
-            //DataRow player = player1.Row;
-            
-            /*cg = new ControlGameUI(player);
-            
-            cg.Dock = DockStyle.Fill;
-
-            cg.Width = Width;
-            cg.Height = Height;
-
-            cg.EndGame = () =>
-            {
-                cg = null;
-                cg = new ControlGameUI(cmbPlayer.Text);
-
-                MessageBox.Show("Has perdido");
-
-                cg.Hide();
-                tloMain.Show();
-            };*/
-            
+            LoadCmbInfo();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }

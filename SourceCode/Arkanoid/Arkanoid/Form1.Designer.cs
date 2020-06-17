@@ -132,7 +132,7 @@
             this.btnExit.Location = new System.Drawing.Point(343, 394);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(114, 52);
+            this.btnExit.Size = new System.Drawing.Size(114, 50);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Salir";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -150,6 +150,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Arkanoid";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tloMain.ResumeLayout(false);
             this.tloMain.PerformLayout();

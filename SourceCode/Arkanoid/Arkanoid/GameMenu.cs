@@ -13,12 +13,11 @@ namespace Arkanoid
         public GameMenu(int choice)
         { 
            InitializeComponent();
-           loadControls(choice);
+           LoadControls(choice);
            // Expandir ventana a toda la pantalla
            Height = ClientSize.Height;
            Width = ClientSize.Width;
            WindowState = FormWindowState.Maximized;
-
         }
         
         protected override CreateParams CreateParams
@@ -48,19 +47,18 @@ namespace Arkanoid
                     Form1 ventana = new Form1();
 
                     ConnectionBD.ExecuteNonQuery(sql);
+                    
                     Hide();
                     ventana.Show();
-
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Ha ocurrido un error", "Arkanoid", MessageBoxButtons.OK);
-
                 }
             }
         }
         
-        public void cargarPuntajes()
+        public void ShowScore()
         {
             //Mostrar los top 10 puntajes en el dataGrid
             DataTable sql = null;
@@ -80,26 +78,23 @@ namespace Arkanoid
             dataGridView1.DataSource = sql;
         }
 
-        public void loadControls(int num)
+        public void LoadControls(int num)
         {
             // Mostrar la tab dependiendo de la decision en form1
             if (num == 2)
             {
                 tabControl1.TabPages.Remove(tabPage1);
-                cargarPuntajes();
+                ShowScore();
             }
             else
-            {
                 tabControl1.TabPages.Remove(tabPage2);
-            }
-            
-                
         }
 
         private void btnBackToMain2_Click(object sender, EventArgs e)
         {
             // Esconder GameMenu y mostrar form1
             Form1 ventana = new Form1();
+            
             Hide();
             ventana.Show();
         }
@@ -108,9 +103,9 @@ namespace Arkanoid
         {
             // Esconder GameMenu y mostrar form1
             Form1 ventana = new Form1();
+            
             Hide();
             ventana.Show();
-            
         }
 
         private void GameMenu_FormClosed(object sender, FormClosedEventArgs e)
