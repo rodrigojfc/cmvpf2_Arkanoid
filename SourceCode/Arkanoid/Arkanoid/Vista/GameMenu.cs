@@ -36,7 +36,7 @@ namespace Arkanoid
         }
 
         // Agregar un nuevo jugador a la base de datos
-        private void btnPlayerCreated_Click(object sender, EventArgs e)
+        private void BtnPlayerCreated_Click(object sender, EventArgs e)
         {
             // Verificaciones para el username
             try
@@ -95,7 +95,7 @@ namespace Arkanoid
         }
 
         // Esconder GameMenu y mostrar form1
-        private void btnBackToMain2_Click(object sender, EventArgs e)
+        private void BtnBackToMain2_Click(object sender, EventArgs e)
         {
             Form1 ventana = new Form1();
             
@@ -104,7 +104,7 @@ namespace Arkanoid
         }
 
         // Esconder GameMenu y mostrar form1
-        private void btnBackToMain_Click(object sender, EventArgs e)
+        private void BtnBackToMain_Click(object sender, EventArgs e)
         {
             Form1 ventana = new Form1();
             

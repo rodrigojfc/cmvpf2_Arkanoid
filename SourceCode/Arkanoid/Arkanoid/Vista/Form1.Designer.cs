@@ -31,69 +31,69 @@
         {
             System.ComponentModel.ComponentResourceManager resources =
                 new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.btnPlay = new System.Windows.Forms.Button();
-            this.btnViewScores = new System.Windows.Forms.Button();
-            this.btnCreatePlayer = new System.Windows.Forms.Button();
-            this.cmbPlayer = new System.Windows.Forms.ComboBox();
+            this.BtnPlay = new System.Windows.Forms.Button();
+            this.BtnViewScores = new System.Windows.Forms.Button();
+            this.BtnCreatePlayer = new System.Windows.Forms.Button();
+            this.CmbPlayer = new System.Windows.Forms.ComboBox();
             this.tloMain = new System.Windows.Forms.TableLayoutPanel();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.BtnExit = new System.Windows.Forms.Button();
             this.tloMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnPlay
+            // BtnPlay
             // 
-            this.btnPlay.AutoSize = true;
-            this.btnPlay.BackColor = System.Drawing.Color.LightGray;
-            this.btnPlay.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPlay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold,
+            this.BtnPlay.AutoSize = true;
+            this.BtnPlay.BackColor = System.Drawing.Color.LightGray;
+            this.BtnPlay.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPlay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnPlay.Location = new System.Drawing.Point(343, 225);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(114, 52);
-            this.btnPlay.TabIndex = 0;
-            this.btnPlay.Text = "Jugar";
-            this.btnPlay.UseVisualStyleBackColor = false;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            this.BtnPlay.Location = new System.Drawing.Point(343, 225);
+            this.BtnPlay.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.BtnPlay.Name = "BtnPlay";
+            this.BtnPlay.Size = new System.Drawing.Size(114, 52);
+            this.BtnPlay.TabIndex = 0;
+            this.BtnPlay.Text = "Jugar";
+            this.BtnPlay.UseVisualStyleBackColor = false;
+            this.BtnPlay.Click += new System.EventHandler(this.BtnPlay_Click);
             // 
-            // btnViewScores
+            // BtnViewScores
             // 
-            this.btnViewScores.AutoSize = true;
-            this.btnViewScores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnViewScores.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnViewScores.Location = new System.Drawing.Point(343, 281);
-            this.btnViewScores.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.btnViewScores.Name = "btnViewScores";
-            this.btnViewScores.Size = new System.Drawing.Size(114, 52);
-            this.btnViewScores.TabIndex = 1;
-            this.btnViewScores.Text = "Ver puntajes";
-            this.btnViewScores.UseVisualStyleBackColor = true;
-            this.btnViewScores.Click += new System.EventHandler(this.btnViewScores_Click);
+            this.BtnViewScores.AutoSize = true;
+            this.BtnViewScores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnViewScores.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnViewScores.Location = new System.Drawing.Point(343, 281);
+            this.BtnViewScores.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.BtnViewScores.Name = "BtnViewScores";
+            this.BtnViewScores.Size = new System.Drawing.Size(114, 52);
+            this.BtnViewScores.TabIndex = 1;
+            this.BtnViewScores.Text = "Ver puntajes";
+            this.BtnViewScores.UseVisualStyleBackColor = true;
+            this.BtnViewScores.Click += new System.EventHandler(this.BtnViewScores_Click);
             // 
-            // btnCreatePlayer
+            // BtnCreatePlayer
             // 
-            this.btnCreatePlayer.AutoSize = true;
-            this.btnCreatePlayer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCreatePlayer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnCreatePlayer.Location = new System.Drawing.Point(343, 337);
-            this.btnCreatePlayer.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.btnCreatePlayer.Name = "btnCreatePlayer";
-            this.btnCreatePlayer.Size = new System.Drawing.Size(114, 52);
-            this.btnCreatePlayer.TabIndex = 2;
-            this.btnCreatePlayer.Text = "Crear jugador";
-            this.btnCreatePlayer.UseVisualStyleBackColor = true;
-            this.btnCreatePlayer.Click += new System.EventHandler(this.btnCreatePlayer_Click_1);
+            this.BtnCreatePlayer.AutoSize = true;
+            this.BtnCreatePlayer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnCreatePlayer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnCreatePlayer.Location = new System.Drawing.Point(343, 337);
+            this.BtnCreatePlayer.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.BtnCreatePlayer.Name = "BtnCreatePlayer";
+            this.BtnCreatePlayer.Size = new System.Drawing.Size(114, 52);
+            this.BtnCreatePlayer.TabIndex = 2;
+            this.BtnCreatePlayer.Text = "Crear jugador";
+            this.BtnCreatePlayer.UseVisualStyleBackColor = true;
+            this.BtnCreatePlayer.Click += new System.EventHandler(this.BtnCreatePlayer_Click_1);
             // 
-            // cmbPlayer
+            // CmbPlayer
             // 
-            this.cmbPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPlayer.FormattingEnabled = true;
-            this.cmbPlayer.Location = new System.Drawing.Point(344, 173);
-            this.cmbPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmbPlayer.Name = "cmbPlayer";
-            this.cmbPlayer.Size = new System.Drawing.Size(112, 28);
-            this.cmbPlayer.TabIndex = 3;
+            this.CmbPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CmbPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbPlayer.FormattingEnabled = true;
+            this.CmbPlayer.Location = new System.Drawing.Point(344, 173);
+            this.CmbPlayer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CmbPlayer.Name = "CmbPlayer";
+            this.CmbPlayer.Size = new System.Drawing.Size(112, 28);
+            this.CmbPlayer.TabIndex = 3;
             // 
             // tloMain
             // 
@@ -105,11 +105,11 @@
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tloMain.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.5F));
-            this.tloMain.Controls.Add(this.cmbPlayer, 1, 1);
-            this.tloMain.Controls.Add(this.btnCreatePlayer, 1, 4);
-            this.tloMain.Controls.Add(this.btnPlay, 1, 2);
-            this.tloMain.Controls.Add(this.btnViewScores, 1, 3);
-            this.tloMain.Controls.Add(this.btnExit, 1, 5);
+            this.tloMain.Controls.Add(this.CmbPlayer, 1, 1);
+            this.tloMain.Controls.Add(this.BtnCreatePlayer, 1, 4);
+            this.tloMain.Controls.Add(this.BtnPlay, 1, 2);
+            this.tloMain.Controls.Add(this.BtnViewScores, 1, 3);
+            this.tloMain.Controls.Add(this.BtnExit, 1, 5);
             this.tloMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tloMain.Location = new System.Drawing.Point(0, 0);
             this.tloMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -125,18 +125,18 @@
             this.tloMain.Size = new System.Drawing.Size(800, 561);
             this.tloMain.TabIndex = 4;
             // 
-            // btnExit
+            // BtnExit
             // 
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnExit.Location = new System.Drawing.Point(343, 394);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(114, 50);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "Salir";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnExit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.BtnExit.Location = new System.Drawing.Point(343, 394);
+            this.BtnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(114, 50);
+            this.BtnExit.TabIndex = 4;
+            this.BtnExit.Text = "Salir";
+            this.BtnExit.UseVisualStyleBackColor = true;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // Form1
             // 
@@ -157,14 +157,14 @@
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.TableLayoutPanel tloMain;
 
         #endregion
 
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnViewScores;
-        private System.Windows.Forms.Button btnCreatePlayer;
-        private System.Windows.Forms.ComboBox cmbPlayer;
+        private System.Windows.Forms.ComboBox CmbPlayer;
+        private System.Windows.Forms.Button BtnCreatePlayer;
+        private System.Windows.Forms.Button BtnViewScores;
+        private System.Windows.Forms.Button BtnExit;
+        private System.Windows.Forms.Button BtnPlay;
     }
 }

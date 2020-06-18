@@ -29,7 +29,7 @@ namespace Arkanoid
         }
 
         // Iniciar el juego
-        private void btnPlay_Click(object sender, EventArgs e)
+        private void BtnPlay_Click(object sender, EventArgs e)
         {
             GameData.InitializeGame();
             
@@ -42,7 +42,7 @@ namespace Arkanoid
                 Height = Height
             };
 
-            currentPlayer = new Player(cmbPlayer.Text, 0);
+            currentPlayer = new Player(CmbPlayer.Text, 0);
             
             // Seteo de Delegate que maneja el fin del juego
             cg.EndGame = () =>
@@ -78,10 +78,10 @@ namespace Arkanoid
             try
             {
                 var dt = ConnectionBD.ExecuteQuery(sql);
-                cmbPlayer.DataSource = null;
-                cmbPlayer.ValueMember = "playerid";
-                cmbPlayer.DisplayMember = "username";
-                cmbPlayer.DataSource = dt;
+                CmbPlayer.DataSource = null;
+                CmbPlayer.ValueMember = "playerid";
+                CmbPlayer.DisplayMember = "username";
+                CmbPlayer.DataSource = dt;
             }
             catch (Exception)
             {
@@ -90,7 +90,7 @@ namespace Arkanoid
         }
 
         // Boton para crear un nuevo jugador
-        private void btnCreatePlayer_Click_1(object sender, EventArgs e)
+        private void BtnCreatePlayer_Click_1(object sender, EventArgs e)
         {
             // Instanciacion de crear jugador en GameMenu
             GameMenu menu = new GameMenu(1);
@@ -119,7 +119,7 @@ namespace Arkanoid
         }
         
         // Boton para ver el top 10
-        private void btnViewScores_Click(object sender, EventArgs e)
+        private void BtnViewScores_Click(object sender, EventArgs e)
         {
             // Instanciacion de ver puntajes en GameMenu
             GameMenu menu = new GameMenu(2);
@@ -140,7 +140,7 @@ namespace Arkanoid
             LoadCmbInfo();
         }
         
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
