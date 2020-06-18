@@ -1,28 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Security.AccessControl;
 using System.Windows.Forms;
 
 namespace Arkanoid
 {
     public partial class GameMenu : Form
     {
+        // Declaracion de delegates
         public delegate void OnClosedWindow();
         public OnClosedWindow CloseAction;
+        
+        public delegate void GetUsername(string text);
+        public GetUsername gn;
+        
         public GameMenu(int choice)
         { 
            InitializeComponent();
            LoadControls(choice);
+           
            // Expandir ventana a toda la pantalla
            Height = ClientSize.Height;
            Width = ClientSize.Width;
            WindowState = FormWindowState.Maximized;
         }
         
+        // Metodo para evitar el blink
         protected override CreateParams CreateParams
         {
-            // Metodo para evitar el blink
             get
             {
                 CreateParams handleParam = base.CreateParams;
@@ -31,36 +35,36 @@ namespace Arkanoid
             }
         }
 
+        // Agregar un nuevo jugador a la base de datos
         private void btnPlayerCreated_Click(object sender, EventArgs e)
         {
-            // Agregar un nuevo jugador a la base de datos
-            if (txtNewPlayer.Text.Equals(""))
-                MessageBox.Show("No se permiten campos vacios", "Arkanoid", MessageBoxButtons.OK);
-            else if(txtNewPlayer.Text.Length < 5)
-                MessageBox.Show("El usuario debe tener más de 5 caracteres", "Arkanoid", MessageBoxButtons.OK);
-            else
+            // Verificaciones para el username
+            try
             {
-                var sql = string.Format("insert into player(username) values('{0}') ", txtNewPlayer.Text);
-
-                try
+                switch (txtNewPlayer.Text)
                 {
-                    Form1 ventana = new Form1();
-
-                    ConnectionBD.ExecuteNonQuery(sql);
-                    
-                    Hide();
-                    ventana.Show();
+                    case string aux when aux.Length > 15:
+                        throw new ExceededMaxCharactersException("No se puede introducir un nick de mas de 15 car");
+                    case string aux when aux.Trim().Length == 0:
+                        throw new EmptyUsernameException("No puede dejar campos vacios");
+                    default:
+                        gn?.Invoke(txtNewPlayer.Text);
+                        break;
                 }
-                catch (Exception)
-                {
-                    MessageBox.Show("Ha ocurrido un error", "Arkanoid", MessageBoxButtons.OK);
-                }
+            }
+            catch(EmptyUsernameException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch(ExceededMaxCharactersException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         
+        // Mostrar los top 10 puntajes en el dataGrid
         public void ShowScore()
         {
-            //Mostrar los top 10 puntajes en el dataGrid
             DataTable sql = null;
 
             try
@@ -90,18 +94,18 @@ namespace Arkanoid
                 tabControl1.TabPages.Remove(tabPage2);
         }
 
+        // Esconder GameMenu y mostrar form1
         private void btnBackToMain2_Click(object sender, EventArgs e)
         {
-            // Esconder GameMenu y mostrar form1
             Form1 ventana = new Form1();
             
             Hide();
             ventana.Show();
         }
 
+        // Esconder GameMenu y mostrar form1
         private void btnBackToMain_Click(object sender, EventArgs e)
         {
-            // Esconder GameMenu y mostrar form1
             Form1 ventana = new Form1();
             
             Hide();

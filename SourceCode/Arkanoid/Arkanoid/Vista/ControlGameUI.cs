@@ -6,29 +6,28 @@ namespace Arkanoid
 {
     public partial class ControlGameUI : UserControl
     {
-        
+        // Declaracion de variables y arreglos a utilizar
         private CustomPictureBox[,] cpb;
         private PictureBox ball;
-
         private Panel scorePanel;
-        private Label remainingLifes;
-        private Label scores;
+        private Label remainingLifes, scores;
 
+        private int remainingPb = 0;
+        
         // Para trabajar con pic + label
         private PictureBox heart;
 
         // Para trabajar con n pic
         private PictureBox[] hearts;
-        
-        private string player;
+
+        // Declaracion de delegate / action
         private delegate void BallActions();
         private BallActions BallMoves;
-        public Action EndGame;
+        public Action EndGame, WinningGame;
         
-        public ControlGameUI(string player1)
+        public ControlGameUI()
         {
             InitializeComponent();
-            player = player1;
             
             BallMoves = BounceBall;
             BallMoves += MoveBall;
@@ -58,16 +57,19 @@ namespace Arkanoid
             LoadTiles();
         }
 
+        // Metodo para cargar los bloques
         private void LoadTiles()
         {
-            // Metodo para cargar los bloques
+            // Variables auxiliares para el calculo de tamano de cada cpb
             int xAxis = 20, yAxis = 5;
+            remainingPb = xAxis * yAxis;
 
             int pbHeight = (int) (Height * 0.3) / yAxis;
             int pbWidth = (Width - (xAxis - 20)) / xAxis;
 
             cpb = new CustomPictureBox[yAxis, xAxis];
 
+            // Rutina de instanciacion y agregacion al UserControl
             for (int i = 0; i < yAxis; i++)
             {
                 for (int j = 0; j < xAxis; j++)
@@ -75,9 +77,9 @@ namespace Arkanoid
                     cpb[i, j] = new CustomPictureBox();
 
                     if (i == 3)
-                        cpb[i, j].Golpes = 2;
+                        cpb[i, j].Hits = 2;
                     else
-                        cpb[i, j].Golpes = 1;
+                        cpb[i, j].Hits = 1;
 
                     // Seteando el tamano
                     cpb[i, j].Height = pbHeight;
@@ -87,24 +89,11 @@ namespace Arkanoid
                     cpb[i, j].Left = j * pbWidth;
                     cpb[i, j].Top = i * pbHeight + scorePanel.Height + 1;
 
-                    int imageBack = 0;
-
-                    if (i % 2 == 0 && j % 2 == 0)
-                        imageBack = 3;
-                    else if (i % 2 == 0 && j % 2 != 0)
-                        imageBack = 4;
-                    else if (i % 2 != 0 && j % 2 == 0)
-                        imageBack = 4;
-                    else
-                        imageBack = 3;
-                    
                     // Si el valor de i = 3, entonces colocar ruta de imagen de bloque blindada
                     if (i == 3)
                     {
                         cpb[i, j].BackgroundImage = Image.FromFile("../../Img/armored.png");
                         cpb[i, j].Tag = "blinded";
-                        
-                        //cpb[i, j].Golpes = 2;
                     }
                     else
                     {
@@ -119,15 +108,15 @@ namespace Arkanoid
             }
         }
 
+        // Generando numero random
         private int GRN()
         {
             return new Random().Next(1, 9);
         }
-
-
+        
         private void GameUI_MouseMove(object sender, MouseEventArgs e)
         {
-            // If para ver como sera el movimiento de la bola y la barra dependiendo si el juego ha empezado o no
+            // If para ver como sera el movimiento de la bola y la barra cuando el juego no ha iniciado
             if (!GameData.gameStarted)
             {
                 if (e.X < (Width - playerPb.Width))
@@ -136,6 +125,7 @@ namespace Arkanoid
                     ball.Left = playerPb.Left + (playerPb.Width / 2) - (ball.Width / 2);
                 }
             }
+            // Manejo de movimiento de barra cuando el juego ya inicio
             else
             {
                 if (e.X < (Width - playerPb.Width))
@@ -147,169 +137,123 @@ namespace Arkanoid
         {
             if (!GameData.gameStarted)
                 return;
-
-            BallMoves?.Invoke();
-        }
-
-        private void GameUI_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Space)
-            {
-                GameData.gameStarted = true;
-                timer1.Start();
-            }
-        }
-
-        private void BounceBall()
-        {
-            // Metodo para rebotar la pelota
-            if (ball.Top < 0)
-                GameData.dirY = -GameData.dirY;
             
-            if (ball.Bottom > Height)
+            try
             {
-                GameData.lifes--;
-                GameData.gameStarted = false;
-                timer1.Stop();
-                
-                RepositionElements();
-                UpdateElements();
+                BallMoves?.Invoke();
+            }
+            catch(OutOfBoundsException ex)
+            {
+                try
+                {
+                    GameData.lifes--;
+                    GameData.gameStarted = false;
+                    timer1.Stop();
 
-                if (GameData.lifes == 0)
+                    RepositionElements();
+                    UpdateElements();
+
+                    if (GameData.lifes == 0)
+                    {
+                        throw new NoRemainingLifesException("");
+                    }
+                }
+                catch (NoRemainingLifesException ex2)
                 {
                     timer1.Stop();
                     EndGame?.Invoke();
                 }
-
-                AddScores(player);
-                //return;
             }
+        }
 
-            if (ball.Bounds.IntersectsWith(scorePanel.Bounds))
+        // Detectar Space para iniciar el juego
+        private void GameUI_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
             {
-                GameData.dirY = -GameData.dirY;
-                
+                if (!GameData.gameStarted)
+                {
+                    switch (e.KeyCode)
+                    {
+                        case Keys.Space:
+                            GameData.gameStarted = true;
+                            timer1.Start();
+                            break;
+                        default:
+                            throw new WrongKeyPressedException("Presione Space para iniciar el juego");
+                    }
+                }
             }
+            catch(WrongKeyPressedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        // Metodo para rebotar la pelota
+        private void BounceBall()
+        {
+            // Pelota se sale del borde
+            if (ball.Bottom > Height)
+                throw new OutOfBoundsException("");
+            
+            // Rebote en la parte superior
+            if (ball.Bounds.IntersectsWith(scorePanel.Bounds))
+                GameData.dirY = -GameData.dirY;
+
+            // Rebote 
             if (ball.Bottom < 20)
             {
                 GameData.dirX = -GameData.dirX;
                 return;
             }
 
+            // Rebote en lado derecho o izquierdo de la ventana
             if (ball.Left < 0 || ball.Right > Width)
             {
                 GameData.dirX = -GameData.dirX;
                 return;
             }
 
+            // Rebote con el jugador
             if (ball.Bounds.IntersectsWith(playerPb.Bounds) || ball.Top < 0)
             {
                 GameData.dirY = -GameData.dirY;
             }
             
+            // Rutina de colisiones con cpb
             for (int i = 4; i >= 0; i--)
             {
                 for (int j = 0; j < 20; j++)
                 {
                     if (cpb[i, j] != null && ball.Bounds.IntersectsWith(cpb[i, j].Bounds))
                     {
-                        cpb[i, j].Golpes--;
+                        cpb[i, j].Hits--;
 
-                        if (cpb[i, j].Golpes == 0)
+                        if (cpb[i, j].Hits == 0)
                         {
                             GameData.score += 5;
                             scores.Text = "Score: " + GameData.score.ToString();
+                            
                             Controls.Remove(cpb[i, j]);
                             cpb[i, j] = null;
+
+                            remainingPb--;
                         }
                         else if(cpb[i, j].Tag.Equals("blinded"))
                             cpb[i, j].BackgroundImage = Image.FromFile("../../Img/tb2.png");
 
                         GameData.dirY = -GameData.dirY;
-                        
+
+                        if (remainingPb == 0)
+                            WinningGame?.Invoke();
 
                         return;
                     }
                 }
             }
-            
-            // OPTION 2
-            /*foreach (CustomPictureBox x in cpb)
-            {
-                
-                if (ball.Bounds.IntersectsWith(x.Bounds))
-                {
-                    x.Golpes--;
-                
-                    if (x.Golpes == 0 && x.Tag.Equals("tiletag"))
-                    {
-                        GameData.score += 5;
-                        scores.Text = "Score: " + GameData.score.ToString();
-                        Controls.Remove(x);
-                        
-                    }
-                    else if (x.Tag.Equals("blinded"))
-                    {
-                        if (x.Golpes == 0)
-                        {
-                            GameData.score += 5;
-                            scores.Text = "Score: " + GameData.score.ToString();
-                            Controls.Remove(x);
-                        }
-                        else
-                        {
-                            x.BackgroundImage = Image.FromFile("../../Img/tb2.png");
-                            x.BackgroundImageLayout = ImageLayout.Stretch;
-                        }
-                    }
-
-                    GameData.dirY = -GameData.dirY;
-
-                    return;
-                }
-            }*/
-            
-            // PREVIOUS OG FOREACH
-            /*foreach (CustomPictureBox x in cpb)
-            {
-                if (x is Control && x.Tag == "tileTag")
-                {
-                    if (ball.Bounds.IntersectsWith(x.Bounds))
-                    {
-                        x.Golpes--;
-                        
-                        if (x.Golpes == 0)
-                        {
-                            GameData.score += 5;
-                            scores.Text = "Score: " + GameData.score;
-                            Controls.Remove(x);
-
-                            GameData.dirY = -GameData.dirY;
-
-                            return;
-                        }
-                    }
-                }
-            }*/
-            
         }
 
-        private void AddScores(string p)
-        {
-            // Agregar score segun el nombre del jugador
-            var sql = string.Format("insert into score(score, playerid) select {0}, pl.playerid from player pl where pl.username = '{1}' ", GameData.score, p);
-            
-            try
-            {
-                ConnectionBD.ExecuteNonQuery(sql);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("No se pudo agregar el puntaje", "Arkanoid", MessageBoxButtons.OK);
-            }
-        }
-        
         private void MoveBall()
         {
             ball.Left += GameData.dirX;
@@ -330,6 +274,7 @@ namespace Arkanoid
 
             scorePanel.BackColor = Color.Black;
             
+            #region Label + PictureBox
             // Instanciar pb
             heart = new PictureBox();
 
@@ -340,7 +285,9 @@ namespace Arkanoid
 
             heart.BackgroundImage = Image.FromFile("../../Img/Heart.png");
             heart.BackgroundImageLayout = ImageLayout.Stretch;
-
+            #endregion
+            
+            #region N cantidad de PictureBox
             hearts = new PictureBox[GameData.lifes];
 
             for(int i = 0; i < GameData.lifes; i++)
@@ -363,7 +310,8 @@ namespace Arkanoid
                     hearts[i].Left = hearts[i - 1].Right + 5;
                 }
             }
-
+            #endregion
+            
             // Instanciar labels
             remainingLifes = new Label();
             scores = new Label();
@@ -394,6 +342,7 @@ namespace Arkanoid
             Controls.Add(scorePanel);
         }
         
+        // Reposicionamiento de elementos luego de perder una vida
         private void RepositionElements()
         {
             playerPb.Left = (Width / 2) - (playerPb.Width / 2);
@@ -401,6 +350,7 @@ namespace Arkanoid
             ball.Left = playerPb.Left + (playerPb.Width / 2) - (ball.Width / 2);
         }
 
+        // Actualizacion de elementos luego de perder una vida
         private void UpdateElements()
         {
             remainingLifes.Text = "x " + GameData.lifes.ToString();

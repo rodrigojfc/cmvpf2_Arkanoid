@@ -88,38 +88,36 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="ConnectionBD.cs" />
-        <Compile Include="ControlGameUI.cs">
-          <SubType>UserControl</SubType>
-        </Compile>
-        <Compile Include="ControlGameUI.Designer.cs">
-          <DependentUpon>ControlGameUI.cs</DependentUpon>
-        </Compile>
-        <Compile Include="CustomPictureBox.cs" />
-        <Compile Include="Form1.cs">
-            <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="Form1.Designer.cs">
-            <DependentUpon>Form1.cs</DependentUpon>
-        </Compile>
-        <Compile Include="GameData.cs" />
-        <Compile Include="GameMenu.cs">
-          <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="GameMenu.Designer.cs">
-          <DependentUpon>GameMenu.cs</DependentUpon>
-        </Compile>
+        <Compile Include="Controlador\ConnectionBD.cs" />
+        <Compile Include="Controlador\EmptyUsernameException.cs" />
+        <Compile Include="Controlador\ExceededMaxCharactersException.cs" />
+        <Compile Include="Controlador\GameData.cs" />
+        <Compile Include="Controlador\NoRemainingLifesException.cs" />
+        <Compile Include="Controlador\OutOfBoundsException.cs" />
+        <Compile Include="Controlador\PlayerController.cs" />
+        <Compile Include="Controlador\WrongKeyPressedException.cs" />
+        <Compile Include="Modelo\CustomPictureBox.cs" />
+        <Compile Include="Modelo\Player.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <EmbeddedResource Include="ControlGameUI.resx">
+        <Compile Include="Vista\ControlGameUI.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="Vista\ControlGameUI.Designer.cs">
           <DependentUpon>ControlGameUI.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="Form1.resx">
+        </Compile>
+        <Compile Include="Vista\Form1.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Vista\Form1.Designer.cs">
           <DependentUpon>Form1.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="GameMenu.resx">
+        </Compile>
+        <Compile Include="Vista\GameMenu.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Vista\GameMenu.Designer.cs">
           <DependentUpon>GameMenu.cs</DependentUpon>
-        </EmbeddedResource>
+        </Compile>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -129,6 +127,15 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="Vista\ControlGameUI.resx">
+          <DependentUpon>ControlGameUI.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Vista\Form1.resx">
+          <DependentUpon>Form1.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Vista\GameMenu.resx">
+          <DependentUpon>GameMenu.cs</DependentUpon>
+        </EmbeddedResource>
         <None Include="packages.config" />
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>

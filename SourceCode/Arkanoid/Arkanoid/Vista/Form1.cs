@@ -6,6 +6,7 @@ namespace Arkanoid
     public partial class Form1 : Form
     {
         private ControlGameUI cg;
+        private Player currentPlayer;
         public Form1()
         {
             InitializeComponent();
@@ -16,9 +17,9 @@ namespace Arkanoid
             WindowState = FormWindowState.Maximized;
         }
 
+        // Metodo para evitar el blink
         protected override CreateParams CreateParams
         {
-            // Metodo para evitar el blink
             get
             {
                 CreateParams handleParam = base.CreateParams;
@@ -27,21 +28,37 @@ namespace Arkanoid
             }
         }
 
+        // Iniciar el juego
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            cg = new ControlGameUI(cmbPlayer.Text);
+            GameData.InitializeGame();
             
-            cg.Dock = DockStyle.Fill;
+            // Instanciacion y preparacion de UserControl
+            cg = new ControlGameUI()
+            {
+                Dock = DockStyle.Fill,
 
-            cg.Width = Width;
-            cg.Height = Height;
+                Width = Width,
+                Height = Height
+            };
+
+            currentPlayer = new Player(cmbPlayer.Text, 0);
             
+            // Seteo de Delegate que maneja el fin del juego
             cg.EndGame = () =>
             {
-                cg = null;
-                cg = new ControlGameUI(cmbPlayer.Text);
+                MessageBox.Show("Has perdido " + currentPlayer.Username);
 
-                MessageBox.Show("Has perdido");
+                cg.Hide();
+                tloMain.Show();
+            };
+
+            // Seteo de Delegate que maneja cuando se gana el juego
+            cg.WinningGame = () =>
+            {
+                PlayerController.CreateNewScore(currentPlayer.Username, GameData.score);
+
+                MessageBox.Show("Has ganado " + currentPlayer.Username + "!");
 
                 cg.Hide();
                 tloMain.Show();
@@ -53,9 +70,9 @@ namespace Arkanoid
 
         }
 
+        // Mostrar los nombres de los jugadores registrados en el combobox
         public void LoadCmbInfo()
         {
-            // Mostrar los nombres de los jugadores registrados en el combobox
             var sql = "Select * from player";
             
             try
@@ -72,23 +89,39 @@ namespace Arkanoid
             }
         }
 
+        // Boton para crear un nuevo jugador
         private void btnCreatePlayer_Click_1(object sender, EventArgs e)
         {
-            // Esconder form1 y mostrar crear jugador
+            // Instanciacion de crear jugador en GameMenu
             GameMenu menu = new GameMenu(1);
+            
+            menu.gn = (string user) => 
+            {
+                if (PlayerController.CreatePlayer(user))
+                {
+                    MessageBox.Show($"El username {user} ya existe, por favor utilice uno diferente");
+                    return;
+                }
+                else
+                    MessageBox.Show($"Gracias por registrarte {user}!");
+                
+                currentPlayer = new Player(user, 0);
+            };
             
             menu.CloseAction = () =>
             {
                 Show();
             };
 
+            // Esconder form1 y mostrar crear jugador
             menu.Show();
             Hide();     
         }
-
+        
+        // Boton para ver el top 10
         private void btnViewScores_Click(object sender, EventArgs e)
         {
-            // Esconder form1 y mostrar puntajes
+            // Instanciacion de ver puntajes en GameMenu
             GameMenu menu = new GameMenu(2);
             
             menu.CloseAction = () =>
@@ -96,15 +129,17 @@ namespace Arkanoid
                 Show();
             };
 
+            // Esconder form1 y mostrar puntajes
             menu.Show();
             Hide();
         }
 
+        // Cargar los usuarios en el combobox al cargar form1
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadCmbInfo();
         }
-
+        
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
