@@ -11,12 +11,12 @@
 JetBrains Rider Version 2019.3.4
 
 ## FAQs
--¿Qué necesito para empezar a jugar?
+- ¿Qué necesito para empezar a jugar?
 
   - Para poder jugar Arkanoid debes actualizar la version de .NET Framework Developer Pack.
   - Para el control de puntajes y usuarios, instalar PgAdmin 4 junto con Postresql.
 
--¿Cómo empezar a jugar?
+- ¿Cómo empezar a jugar?
 
 1. Clonar el repositorio en tu computador.
 2. Usando PgAdmin 4 correr el script para crear la base de datos necesaria para el juego,
@@ -28,16 +28,16 @@ SourceCode/Arkanoid/Arkanoid
 en "Jugar" y presiona la barra de espacio para iniciar.
 6. Disfruta del juego.
 
--¿Cómo funciona el sistema de puntajes?
+- ¿Cómo funciona el sistema de puntajes?
 
 Por cada bloque que destruyes sumas 5 puntos, el puntaje solo se agrega a tu usuario si ganas el juego.
 
--¿Cuál es el objetivo del juego?
+- ¿Cuál es el objetivo del juego?
 
 Destruye todos los bloques, tienes 3 vidas y pierdes una cada vez que la bola
 no logra golpear la plataforma e impacta con la parte inferior de la pantalla.
 
--¿Qué funciones tiene el menú principal?
+- ¿Qué funciones tiene el menú principal?
 
   - Puedes hacer click en "Jugar" para comenzar el juego después de seleccionar tu usuario del menú desplegable.
   - Haz click en "Ver puntajes" para ver los records.
