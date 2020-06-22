@@ -201,7 +201,7 @@ namespace Arkanoid
             if (ball.Bounds.IntersectsWith(scorePanel.Bounds))
                 GameData.dirY = -GameData.dirY;
 
-            // Rebote 
+            // Rebote de la parte inferior de la pelota
             if (ball.Bottom < 20)
             {
                 GameData.dirX = -GameData.dirX;
